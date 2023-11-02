@@ -11,14 +11,8 @@ O histórico de revisão deste documento pode ser encontrado [aqui](./historico.
 Problema: Falta de espaço próprio e unificado para interação entre alunos na Faculdade do Gama (FGA), considerando que o CA não tem espaço pra quase nada, onde possam ser anunciados evento remotos ou presenciais criados por alunos, tais como jogos de cartas e tabuleiros, eventos esportivos casuais e encontros em grupo fora das dependências da faculdade.
 O aplicativo irá intermediar a organização de eventos entre estudantes.
 ### 1.2 Declaração de Posição do Produto
-#### Qual é o produto que o grupo se propõe a desenvolver?</br>
-Um aplicativo para organização de eventos entre estudantes.
-#### O que torna este produto diferente dos seus concorrentes (se existirem concorrentes)?</br>
-Ao contrário de outras redes sociais, nosso aplicativo abrange apenas o FGA, garantindo uma comunidade mais fechada e focada na cultura da universidade.
-#### Quem são os usuários-alvo e clientes do produto? Quais suas características e porque o produto é importante para eles? </br>
-Estudantes do FGA interessados em participar/encontrar grupos específicos de atividades de lazer.
-Por que os clientes deveriam utilizar / comprar este produto?
-Pois o aplicativo é focado justamente na comunidade do FGA, facilitando encontros internos e aumentando a abrangência. 
+
+O grupo se propõe a desenvolver um aplicativo para organização de eventos entre estudantes, um aplicativo que diferente de redes sociais ou grupos em mensageiros online, é totalmente focado em promover a organização de eventos entre estudantes interessados em encontrar grupos de lazer e esportes dentro da Faculdade do Gama.
 
 ### 1.3 Objetivos do Produto
 * O objetivo principal é criar um espaço para facilitar o encontro de pessoas com interesses específicos com outras de interesses similares dentro da FGA, além de ajudar a expandir a cultura e aproximar os estudantes.
