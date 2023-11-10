@@ -1,28 +1,48 @@
-# Visão do Produto e do Projeto  v1.0
+# Visão do Produto e do Projeto  v0.1.1
 
 ## Histórico de Revisão
 
-O histórico de revisão deste documento pode ser encontrado [aqui](./historico.md)
+### Versão 0.1
+* Data: 02/10/2023
+* Autor: [Rodrigo Wendrel](https://github.com/rodwendrel/)
+* Reunião com foco em estruturar o documento e página de documentação com informações gerais do projeto.
+
+### Versão 0.1
+* Data: 03/11/2023
+* Autor: Rodrigo, Manoel, João Mateus
+* Revisão e alinhamento de todos os documentos
 
 ## 1. Visão Geral do Produto
 
 ### 1.1 Problema
-* Contexto: Dependências da Faculdade do Gama - UnB </br>
+Contexto: Dependências da Faculdade do Gama - UnB </br>
 Problema: Falta de espaço próprio e unificado para interação entre alunos na Faculdade do Gama (FGA), considerando que o CA não tem espaço pra quase nada, onde possam ser anunciados evento remotos ou presenciais criados por alunos, tais como jogos de cartas e tabuleiros, eventos esportivos casuais e encontros em grupo fora das dependências da faculdade.
 O aplicativo irá intermediar a organização de eventos entre estudantes.
-### 1.2 Declaração de Posição do Produto
 
-O grupo se propõe a desenvolver um aplicativo para organização de eventos entre estudantes, um aplicativo que diferente de redes sociais ou grupos em mensageiros online, é totalmente focado em promover a organização de eventos entre estudantes interessados em encontrar grupos de lazer e esportes dentro da Faculdade do Gama.
+### 1.2 Declaração de Posição do Produto
+GamaHub se trata de uma aplicação web voltada para o corpo discente da Universidade de Brasília Faculdade Gama. Seu objetivo é gerar interação e inclusão entre os alunos por meio de eventos criados pelos mesmos. É uma forma fácil e simples de conhecer pessoas com interesses parecidos e assim, fazer novas relações que são necessárias e podem ser proveitosas dentro do meio acadêmico, pessoal e profissional.
+
+##### Tabela 1 - Declaração de posição do produto
+
+| | |
+|---|---|
+|Para|Estudantes do FGA|
+|Necessidade|devido a falta de espaços físicos destinados para encontros para atividades de lazer|
+|O|GamaHub|
+|Que|Facilitar encontro de alunos do FGA para realizar atividades de lazer no FGA|
+|Ao contrário|Amino|
+|Nosso produto|É específico ao FGA|
 
 ### 1.3 Objetivos do Produto
-* O objetivo principal é criar um espaço para facilitar o encontro de pessoas com interesses específicos com outras de interesses similares dentro da FGA, além de ajudar a expandir a cultura e aproximar os estudantes.
+O objetivo principal é criar um espaço para facilitar o encontro de pessoas com interesses específicos com outras de interesses similares dentro da FGA, além de ajudar a expandir a cultura e aproximar os estudantes.
+
 ### 1.4 Tecnologias a Serem Utilizadas
-* Será utilizado o método ágil ScrumXP, a linguagem javascript, a ferramenta de organização Notion e o framework React Native na IDE VSCode.
+Será utilizado o método ágil ScrumXP, a stack Javascript, com NodeJS para o backend, a biblioteca React com framework NextJS, Notion e Suíte Google para organização de documentos e sprints. O ambiente de desenvolvimento será o VsCode.
 
 ## 2. Visão Geral do Projeto
 ### 2.1 Ciclo de Vida do Projeto de Desenvolvimento de Software
 ![img](./img/ciclo.png) </br>
-* Considerando o contexto do projeto que é de uma aplicação sem muitos riscos envolvidos, o que não pede muito detalhamento de requisitos, e que o prazo é limitado, foi definido um ciclo de vida ágil, assim como os processos do ScrumXP, visando um produto de software que agrade os usuários e aceite mudanças de requisitos. As ferramentas utilizadas na organização foram o Notion, GitHub e Discord, onde os membros podem organizar códigos, fazer reuniões e registrar o progresso das sprints.
+Considerando o contexto do projeto que é de uma aplicação sem muitos riscos envolvidos, o que não pede muito detalhamento de requisitos, e que o prazo é limitado, foi definido um ciclo de vida ágil, assim como os processos do ScrumXP, visando um produto de software que agrade os usuários e aceite mudanças de requisitos. As ferramentas utilizadas na organização foram o Notion, GitHub e Discord, onde os membros podem organizar códigos, fazer reuniões e registrar o progresso das sprints.
 
 ### 2.2 Organização do Projeto
 | Papel | Atribuições | Responsáveis | Participantes
@@ -33,7 +53,13 @@ O grupo se propõe a desenvolver um aplicativo para organização de eventos ent
 |Cliente | Estudantes da FGA | Estudantes da FGA | Estudantes da FGA |
 
 ### 2.3 Planejamento das Fases e/ou Iterações do Projeto
-//
+|Sprint|Produto (Entrega)|Data Início|Data Fim|Entregáveis|Responsáveis|% conclusão|
+|---|---|---|---|---|---|---|
+|Sprint 1|Definição do Produto|11/09/2023|02/10/2023|(*)|Todos os membros do grupo|10%|
+|Sprint 2|MVP e Planejamento do Projeto|02/10/2023|03/11/2023|Documentação de Visão, Escopo e Arquitetura|Todos os membros do grupo|15%|
+|Sprint 3|Protótipo e capacitação nas tecnologias|06/10/2023|12/11/2023|Protótipo, e atividades de desenvolvimento|Todos os membros do grupo|10%|
+
+
 ### 2.4 Matriz da Comunicação
 | Descrição | Área/Envolvidos | Periodicidade | Produtos Gerados
 |---|---|---|---|
@@ -62,20 +88,38 @@ As atividades não forem concretizadas no prazo |Médio |Manter acompanhamento d
 * As atividades não forem concretizadas no prazo
 
 ## 3. Processo de Desenvolvimento de Software
+* Sprint: 1 semana
+* Planejamento: no início de cada sprint
+* Retrospectiva e review: ao final de cada sprint
+* Daily: diariamente através de meio de comunicação que seja rápida
+
 
 ## 4. Detalhamento de Atividades do Projeto
 ### 4.1 Atividade 1
-//
+
+|Atividade|Método|Ferramenta|Entrega|
+|---|---|---|---|
+|Codificação|Pair programming| Chat por voz / VsCode / Live Coding | Função definida na sprint|
+
 ### 4.2 Atividade 2
-//
+|Atividade|Método|Ferramenta|Entrega|
+|---|---|---|---|
+|Revisão|Pair review| Chat por voz / VsCode / Live Coding |Código revisado e validado|
+
 ### 4.3 Atividade 3
-//
-### 4.4 Atividade 'N'
-//
+|Atividade|Método|Ferramenta|Entrega|
+|---|---|---|---|
+|Documentação|(*)|Google Docs / MkDocs |Documento|
+
+### 4.4 Atividade 4
+|Atividade|Método|Ferramenta|Entrega|
+|---|---|---|---|
+|Testes|Testes de integração / Unitários|A definir|Relatório de testes|
 
 ## 5. Lições Aprendidas
 ### 5.1 Unidade 1
-//
+Estruturação de documentos, colaboração e organização em equipe. 
+
 ### 5.2 Unidade 2
 //
 ### 5.3 Unidade 3
@@ -84,7 +128,9 @@ As atividades não forem concretizadas no prazo |Médio |Manter acompanhamento d
 //
 
 ## 6. Próximos Passos
-//
+* Prototipação do produto;
+* Capacitação da equipe;
+* Codificação do projeto;
 
 ## 7. Referências Bibliográficas
 //
