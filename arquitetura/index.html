@@ -1,0 +1,911 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../escopo/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Documento de Arquitetura v0.1 - GamaHub - Grupo Orion</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documento-de-arquitetura-v01" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="GamaHub - Grupo Orion" class="md-header__button md-logo" aria-label="GamaHub - Grupo Orion" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GamaHub - Grupo Orion
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documento de Arquitetura v0.1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="mudar para modo claro"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="mudar para modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Visão do Produto e do Projeto  v0.1.1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Documento de Arquitetura v0.1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../escopo/" class="md-tabs__link">
+        
+  
+    
+  
+  Declaração de Escopo do Produto v0.1.2
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GamaHub - Grupo Orion" class="md-nav__button md-logo" aria-label="GamaHub - Grupo Orion" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    GamaHub - Grupo Orion
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão do Produto e do Projeto  v0.1.1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Documento de Arquitetura v0.1
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Arquitetura v0.1
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-revisao" class="md-nav__link">
+    Histórico de Revisão
+  </a>
+  
+    <nav class="md-nav" aria-label="Histórico de Revisão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versao-01" class="md-nav__link">
+    Versão 0.1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autores" class="md-nav__link">
+    Autores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introducao" class="md-nav__link">
+    1. Introdução
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introdução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-proposito" class="md-nav__link">
+    1. Propósito
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-escopo" class="md-nav__link">
+    1.2 Escopo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-representacao-arquitetural" class="md-nav__link">
+    2. Representação Arquitetural
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Representação Arquitetural">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-definicoes" class="md-nav__link">
+    2.1 Definições
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-justifique-sua-escolha" class="md-nav__link">
+    2.2. Justifique sua escolha.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-detalhamento" class="md-nav__link">
+    2.3 Detalhamento
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Detalhamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imagem-1-diagrama-de-funcionamento-da-arquitetura-mvc" class="md-nav__link">
+    Imagem 1: Diagrama de funcionamento da arquitetura MVC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-metas-e-restricoes-arquiteturais" class="md-nav__link">
+    2.4 Metas e restrições arquiteturais
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Metas e restrições arquiteturais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabela-1-metas" class="md-nav__link">
+    Tabela 1: Metas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabela-2-restricoes" class="md-nav__link">
+    Tabela 2: Restrições
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-visao-de-casos-de-uso-escopo-do-produto" class="md-nav__link">
+    2.5 Visão de Casos de uso (escopo do produto)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-visao-logica" class="md-nav__link">
+    2.6 Visão lógica
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Visão lógica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imagem-2-diagrama-de-modulos" class="md-nav__link">
+    Imagem 2: Diagrama de módulos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagem-3-diagrama-de-estadosusuario-visitante" class="md-nav__link">
+    Imagem 3:  Diagrama de Estados(Usuário / Visitante)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagem-4-diagrama-de-estadosadministrador" class="md-nav__link">
+    Imagem 4:   Diagrama de Estados(Administrador)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagem-5-diagrama-de-classes" class="md-nav__link">
+    Imagem 5:   Diagrama de Classes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-visao-de-implementacao" class="md-nav__link">
+    2.7 Visão de Implementação
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 Visão de Implementação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabela-3-visao-de-implementacao" class="md-nav__link">
+    Tabela 3 - Visão de Implementação
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-visao-de-implantacao" class="md-nav__link">
+    2.8 Visão de Implantação
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-visao-de-implantacao" class="md-nav__link">
+    2.9 Visão de Implantação
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bibliografia" class="md-nav__link">
+    3. Bibliografia
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../escopo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Declaração de Escopo do Produto v0.1.2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="documento-de-arquitetura-v01">Documento de Arquitetura v0.1</h1>
+<h2 id="historico-de-revisao">Histórico de Revisão</h2>
+<h3 id="versao-01">Versão 0.1</h3>
+<ul>
+<li>Data: 03/11/2023</li>
+<li>Autores: Rodrigo, João Pedro, Manoel, Mateus</li>
+<li>Primeiras definições de escopo.</li>
+</ul>
+<h2 id="autores">Autores</h2>
+<table>
+  <tr>
+   <td><strong>Matrícula</strong>
+   </td>
+   <td>
+<strong>Nome</strong>
+   </td>
+   <td><strong>Descrição do papel assumido na equipe</strong>
+   </td>
+   <td><strong>% de contribuição ao trabalho (*)</strong>[^1]
+   </td>
+  </tr>
+  <tr>
+   <td>170161951
+   </td>
+   <td>Eduardo Rodrigues Levenhagem
+   </td>
+   <td>
+   </td>
+   <td>16.5%
+   </td>
+  </tr>
+  <tr>
+   <td>211063022
+   </td>
+   <td>Rodrigo Wendrel Ferreira 
+   </td>
+   <td>Scrum Master
+   </td>
+   <td>16.5%
+   </td>
+  </tr>
+  <tr>
+   <td>190058048
+   </td>
+   <td>Lara Giuliana Lima dos Santos
+   </td>
+   <td>
+   </td>
+   <td>16.5%
+   </td>
+  </tr>
+  <tr>
+   <td>200023535
+   </td>
+   <td>Manoel Castro Moura Filho
+   </td>
+   <td>
+   </td>
+   <td>16.5%
+   </td>
+  </tr>
+  <tr>
+   <td>200024825
+   </td>
+   <td>Mateus Santos Negrini
+   </td>
+   <td>
+   </td>
+   <td>16.5%
+   </td>
+  </tr>
+  <tr>
+   <td>211061940
+   </td>
+   <td>João Pedro Ferreira Alves
+   </td>
+   <td>
+   </td>
+   <td>16.5%
+   </td>
+  </tr>
+</table>
+
+<h2 id="1-introducao">1. Introdução</h2>
+<h3 id="1-proposito">1. Propósito</h3>
+<p>Providenciar uma plataforma para aqueles interessados em participar de eventos ou grupos no FGA possam se encontrar e se comunicar, além de poderem cadastrar seus próprios evento</p>
+<h3 id="12-escopo">1.2 Escopo</h3>
+<p>O software se trata de uma aplicação web com o objetivo de permitir a integração dos alunos da Faculdade Gama por meio de atividades sociais que são anunciadas via aplicação.</p>
+<h2 id="2-representacao-arquitetural">2. Representação Arquitetural</h2>
+<h3 id="21-definicoes">2.1 Definições</h3>
+<p>O sistema seguirá uma arquitetura MVC, onde a aplicação é dividida em três camadas: Model, View e Controller. A camada Model (Modelo) é  responsável pela manipulação de dados, a camada View é a camada por onde o usuário irá interagir com a aplicação, por fim, a camada Controller é responsável por conectar a Model e a View, repassando as requisições da View para a Model, e repassando os resultados da Model para a View.</p>
+<h3 id="22-justifique-sua-escolha">2.2. Justifique sua escolha.</h3>
+<p>Escolhemos o MVC devido a sua modularização permitindo o desenvolvimento simultâneo de diversas partes do software além de oferecer flexibilidade para evoluir a aplicação já que, as alterações na Model não afetam a View e vice-versa, permitindo assim, uma manutenção mais simplificada. </p>
+<h3 id="23-detalhamento">2.3 Detalhamento</h3>
+<h5 id="imagem-1-diagrama-de-funcionamento-da-arquitetura-mvc">Imagem 1: Diagrama de funcionamento da arquitetura MVC</h5>
+<p><img alt="img" src="../img/mvc.png" /> </br></p>
+<h3 id="24-metas-e-restricoes-arquiteturais">2.4 Metas e restrições arquiteturais</h3>
+<p>As metas e restrições são definidas para guiar o time de desenvolvimento para entregar um produto de qualidade dentro do escopo. Nas tabelas abaixo estão registradas as metas e restrições assumidas pela equipe no projeto.</p>
+<h5 id="tabela-1-metas">Tabela 1: Metas</h5>
+<table>
+  <tr>
+   <td>Metas
+   </td>
+   <td>Descrição
+   </td>
+  </tr>
+  <tr>
+   <td>Atuação
+   </td>
+   <td>capacidade de 100 usuários simultâneos.
+   </td>
+  </tr>
+  <tr>
+   <td>Segurança e confiabilidade
+   </td>
+   <td>Verificar se um usuário já foi cadastrado.
+   </td>
+  </tr>
+  <tr>
+   <td>Segurança e confiabilidade
+   </td>
+   <td>Não permitir que um usuário faça login em uma conta que não  lhe pertence.
+   </td>
+  </tr>
+  <tr>
+   <td>Segurança e confiabilidade
+   </td>
+   <td>Sistema de autenticação de e-mail.
+   </td>
+  </tr>
+  <tr>
+   <td>Segurança e confiabilidade
+   </td>
+   <td>Permitir a exclusão de posts somente por parte do autor ou do administradores.
+   </td>
+  </tr>
+  <tr>
+   <td>Manutenção
+   </td>
+   <td>Cada módulo deve ser independente de modo que seja possível alterar um sem necessariamente alterar toda a aplicação.
+   </td>
+  </tr>
+  <tr>
+   <td>Manutenção
+   </td>
+   <td>O site deve estar disponível para uso 24h por dia.
+   </td>
+  </tr>
+</table>
+
+<h5 id="tabela-2-restricoes">Tabela 2: Restrições</h5>
+<table>
+  <tr>
+   <td>Restrições
+   </td>
+   <td>Descrição
+   </td>
+  </tr>
+  <tr>
+   <td>Responsividade
+   </td>
+   <td>A aplicação deve ser adaptável e oferecer uma experiência consistente em todas as variedades de telas de smartphones.
+   </td>
+  </tr>
+  <tr>
+   <td>Acessibilidade
+   </td>
+   <td>A aplicação deve ter utilização intuitiva e simples.
+   </td>
+  </tr>
+  <tr>
+   <td>Idioma
+   </td>
+   <td>A aplicação deve ser desenvolvida para o idioma português do Brasil.
+   </td>
+  </tr>
+  <tr>
+   <td>Plataforma
+   </td>
+   <td>A aplicação será utilizada em navegadores web modernos e atualizados.
+   </td>
+  </tr>
+  <tr>
+   <td>Internet
+   </td>
+   <td>O usuário deverá estar conectado para utilizar a aplicação.
+   </td>
+  </tr>
+</table>
+
+<h3 id="25-visao-de-casos-de-uso-escopo-do-produto">2.5 Visão de Casos de uso (escopo do produto)</h3>
+<p>A aplicação visa facilitar a criação e divulgação de eventos na Faculdade do Gama, assim gerando maior interação dentro do campus. A aplicação web foi proposta para utilização por três perfis diferentes, o visitante, que acessa o site sem login, o usuário, que utiliza o site logado e o administrador, que possui poderes de curadoria em todo o site. Os visitantes podem visualizar os eventos disponíveis, os usuários podem criar e interagir com eventos, os administradores podem fazer tudo o que os usuários podem, além de banir usuários e deletar eventos ou comentários.</p>
+<h3 id="26-visao-logica">2.6 Visão lógica</h3>
+<h5 id="imagem-2-diagrama-de-modulos">Imagem 2: Diagrama de módulos</h5>
+<p><img alt="img" src="../img/modulos.png" /> </br></p>
+<h5 id="imagem-3-diagrama-de-estadosusuario-visitante">Imagem 3:  Diagrama de Estados(Usuário / Visitante)</h5>
+<p><img alt="img" src="../img/estados.png" /> </br></p>
+<h5 id="imagem-4-diagrama-de-estadosadministrador">Imagem 4:   Diagrama de Estados(Administrador)</h5>
+<p><img alt="img" src="../img/estadosadm.png" /> </br></p>
+<h5 id="imagem-5-diagrama-de-classes">Imagem 5:   Diagrama de Classes</h5>
+<p><img alt="img" src="../img/classes.png" /> </br></p>
+<h3 id="27-visao-de-implementacao">2.7 Visão de Implementação</h3>
+<h5 id="tabela-3-visao-de-implementacao">Tabela 3 - Visão de Implementação</h5>
+<table>
+  <tr>
+   <td><strong>Visão de Implementação - </strong>Lógica de negócios e Regras de Negócio
+   </td>
+  </tr>
+  <tr>
+   <td>Administradores podem excluir perfis de usuário, postagens no fórum ou eventos que violem os Termos de Uso da aplicação *(Tabela de Regras Gerais).
+   </td>
+  </tr>
+  <tr>
+   <td>Cada perfil de usuário terá um login com senha, tendo seu e-mail verificado; Usuários sem um perfil criado poderão apenas visualizar, mas não interagir com os dados da aplicação.
+   </td>
+  </tr>
+  <tr>
+   <td>Cada usuário será capaz de fazer postagens no fórum, além de poder cadastrar eventos e endossar comentários com curtidas
+   </td>
+  </tr>
+  <tr>
+   <td>O perfil de visitante não terá permissão para fazer postagens nem qualquer tipo de interações, apenas visualizar 
+   </td>
+  </tr>
+</table>
+
+<h3 id="28-visao-de-implantacao">2.8 Visão de Implantação</h3>
+<p><img alt="img" src="../img/implantacao.png" /> </br></p>
+<ul>
+<li>Front-end React: será implementado o front-end usando React, que será servido por meio de um servidor web Node.js. Será distribuído em servidores na nuvem</li>
+<li>Back-end Node.js: Nosso servidor Node.js atuará como a camada back-end</li>
+<li>Banco de Dados: O MongoDB, por conta de sua simplicidade de uso e aprendizado, será nosso banco de dados principal para armazenar e gerenciar os dados da aplicação web. Utilizaremos um cluster MongoDB gerenciado em um servidor na nuvem para garantir alta disponibilidade</li>
+</ul>
+<h3 id="29-visao-de-implantacao">2.9 Visão de Implantação</h3>
+<ul>
+<li>É necessário o uso de um email da instituição ( UnB) para criação de conta e utilização da aplicação.</li>
+</ul>
+<h2 id="3-bibliografia">3. Bibliografia</h2>
+<p>HIRAMA, Kechi. Engenharia de Software: Qualidade e Produtividade com Tecnologia. Rio de Janeiro: GEN LTC, 2011. 232 p.</p>
+<p>KOSCIANSKI, André; SOARES, Michel dos Santos. Qualidade de Software - 2ª edição: Aprenda as metodologias e técnicas. São Paulo: Novatec Editora, 2007. 395 p.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>

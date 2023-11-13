@@ -1,0 +1,1205 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../arquitetura/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Declaração de Escopo do Produto v0.1.2 - GamaHub - Grupo Orion</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#declaracao-de-escopo-do-produto-v012" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="GamaHub - Grupo Orion" class="md-header__button md-logo" aria-label="GamaHub - Grupo Orion" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GamaHub - Grupo Orion
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Declaração de Escopo do Produto v0.1.2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="mudar para modo claro"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="mudar para modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Visão do Produto e do Projeto  v0.1.1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../arquitetura/" class="md-tabs__link">
+        
+  
+    
+  
+  Documento de Arquitetura v0.1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Declaração de Escopo do Produto v0.1.2
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GamaHub - Grupo Orion" class="md-nav__button md-logo" aria-label="GamaHub - Grupo Orion" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    GamaHub - Grupo Orion
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão do Produto e do Projeto  v0.1.1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitetura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Arquitetura v0.1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Declaração de Escopo do Produto v0.1.2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Declaração de Escopo do Produto v0.1.2
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-revisao" class="md-nav__link">
+    Histórico de Revisão
+  </a>
+  
+    <nav class="md-nav" aria-label="Histórico de Revisão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versao-01" class="md-nav__link">
+    Versão 0.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versao-011" class="md-nav__link">
+    Versão 0.1.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versao-012" class="md-nav__link">
+    Versão 0.1.2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-problema-sistema-de-software" class="md-nav__link">
+    1. Problema / Sistema de software
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Problema / Sistema de software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outras-informacoes-sobre-o-ciclo-de-vida" class="md-nav__link">
+    Outras informações sobre o ciclo de vida:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-backlog-do-produto" class="md-nav__link">
+    2. Backlog do produto
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Backlog do produto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-perfis" class="md-nav__link">
+    2.1 Perfis
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Perfis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabela-1-perfis-de-acesso" class="md-nav__link">
+    Tabela 1 - Perfis de acesso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-cenarios" class="md-nav__link">
+    2.2 Cenários
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-backlog-do-produto" class="md-nav__link">
+    2.3 Backlog do produto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-sprints-previstas" class="md-nav__link">
+    2.4 Sprints previstas
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Sprints previstas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fonte-desenvolvedores-2023" class="md-nav__link">
+    Fonte: (Desenvolvedores, 2023)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-definicao-de-readydone" class="md-nav__link">
+    3. Definição de Ready/Done
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-us-user-stories" class="md-nav__link">
+    4. US – User Stories
+  </a>
+  
+    <nav class="md-nav" aria-label="4. US – User Stories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabela-5-user-stories" class="md-nav__link">
+    Tabela 5 - User Stories
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-diagrama-de-casos-de-uso" class="md-nav__link">
+    5. Diagrama de casos de uso
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-mvp" class="md-nav__link">
+    6. MVP
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="declaracao-de-escopo-do-produto-v012">Declaração de Escopo do Produto v0.1.2</h1>
+<h2 id="historico-de-revisao">Histórico de Revisão</h2>
+<h3 id="versao-01">Versão 0.1</h3>
+<ul>
+<li>Data: 25/10/2023</li>
+<li>Autores: Rodrigo, João Pedro, Manoel</li>
+<li>Primeiras definições de escopo.</li>
+</ul>
+<h3 id="versao-011">Versão 0.1.1</h3>
+<ul>
+<li>Data: 02/11/2023</li>
+<li>Autores: João Pedro</li>
+<li>Adição das User Stories, diagrama de casos de uso e alguns itens no backlog do produto.</li>
+</ul>
+<h3 id="versao-012">Versão 0.1.2</h3>
+<ul>
+<li>Data: 03/11/2023</li>
+<li>Autores: Rodrigo, Manoel, João Mateus</li>
+<li>Revisão e alinhamento de todos os documentos</li>
+</ul>
+<h2 id="1-problema-sistema-de-software">1. Problema / Sistema de software</h2>
+<ul>
+<li>
+<p>Definição da equipe: Manoel: desenvolvedor front-end, representante do Product Owner; Lara: desenvolvedora front-end; João Pedro: desenvolvedor back-end; Mateus Santos: desenvolvedor back-end; Rodrigo: analista de bancos de dados, scrum master; Eduardo: testador, prototipador, desenvolvedor.</p>
+</li>
+<li>
+<p>Resumo do problema: Falta de um espaço/meio de comunicação para a promoção de eventos de interação entre discentes no campus UnB Gama.</p>
+</li>
+<li>
+<p>Sistema de Software. O nome do projeto é GamaHub e seu objetivo é ser uma plataforma para facilitar o encontro de pessoas com interesses em comum e aproximar os discentes.</p>
+</li>
+<li>
+<p>Resumo de tecnologias usadas: Resuma as tecnologias usadas no desenvolvimento, justificando seus usos Serão utilizados a linguagem de programação JavaScript, por afinidade dos membros do grupo; o JS runtime Node.js, pois é o runtime de maior afinidade do grupo; o framework React, para desenvolver o front-end com facilidade e com as conveniências do framework; o software de bancos de dados MongoDB, por afinidade da equipe; a IDE VSCode, por afinidade da equipe e o software de organização Notion, para organizar as sprints, documentos e arquivos do projeto.</p>
+</li>
+<li>
+<p>Resumo da metodologia de desenvolvimento usada: Resuma o a filosofia de desenvolvimento seu ciclo de vida (fases e atividades). Considerando o contexto do projeto que é de uma aplicação web com vários riscos envolvidos e prazo bastante limitado, foi definido um ciclo de vida ágil, assim como os processos do Scrum XP, visando um produto de software que agrade os usuários e aceite mudanças de requisitos.</p>
+</li>
+</ul>
+<h4 id="outras-informacoes-sobre-o-ciclo-de-vida">Outras informações sobre o ciclo de vida:</h4>
+<ul>
+<li>Métodos, técnicas: Pair Programming, Code Review, Refactoring, Padrões de Codificação, Integração Contínua, Propriedade Coletiva, Projeto Simples e Metáforas.</li>
+<li>Métricas usadas no desenvolvimento: Tempo de capacitação da equipe, tempo em dias e quantidade de desenvolvedores para completar uma sprint, grau de satisfação do PO</li>
+<li>Testes de software: Os níveis de testes usados serão unitários e integração.</li>
+</ul>
+<h2 id="2-backlog-do-produto">2. Backlog do produto</h2>
+<h3 id="21-perfis">2.1 Perfis</h3>
+<h5 id="tabela-1-perfis-de-acesso">Tabela 1 - Perfis de acesso</h5>
+<table>
+  <tr>
+   <td>#
+   </td>
+   <td>Nome do perfil
+   </td>
+   <td>Características do perfil
+   </td>
+   <td>Permissões de acesso
+   </td>
+  </tr>
+  <tr>
+   <td>1
+   </td>
+   <td>Administrador
+   </td>
+   <td>Responsável por realizar a moderação dos usuários e eventos cadastrados no sistema.
+   </td>
+   <td>Permite ver, e deletar usuários  e eventos cadastrados. Não tem acesso direto às senhas.
+   </td>
+  </tr>
+  <tr>
+   <td>2
+   </td>
+   <td>Usuário
+   </td>
+   <td>Pode cadastrar informações pessoais para contato, registrar eventos e se inscrever em eventos criados por outros usuários.
+   </td>
+   <td>Permite gerenciar seus próprios eventos e dados cadastrados.
+   </td>
+  </tr>
+  <tr>
+   <td>3
+   </td>
+   <td>Visitante
+   </td>
+   <td>Pode ver todos os eventos cadastrados no sistema.
+   </td>
+   <td>Não pode se inscrever ou criar eventos, apenas visualizar.
+   </td>
+  </tr>
+</table>
+
+<h3 id="22-cenarios">2.2 Cenários</h3>
+<p>Tabela 2 - Cenários funcionais</p>
+<table>
+  <tr>
+   <td colspan="3" >Sistema: GamaHub – Cenários funcionais
+   </td>
+  </tr>
+  <tr>
+   <td>Numeração do cenário
+   </td>
+   <td>Nome do cenário
+   </td>
+   <td>Sprints
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+<h3 id="23-backlog-do-produto">2.3 Backlog do produto</h3>
+<p>Tabela 3 - Backlog do produto</p>
+<table>
+  <tr>
+   <td colspan="6" ><strong>Sistema: GamaHub – Backlog do produto</strong>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Numeração
+<p>
+(Cenário / requisito)
+   </td>
+   <td>Sprint
+   </td>
+   <td>Nome do requisito
+   </td>
+   <td>Tipo de requisito
+<p>
+(Funcional / não funcional)
+   </td>
+   <td>Priorização do requisito
+<p>
+Must, Should, Could
+   </td>
+   <td>Descrição sucinta do requisito
+   </td>
+   <td><strong>User stories (U.S.) associadas</strong>
+<p>
+Identifique as U.S. associadas ao requisito
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Criar Conta
+   </td>
+   <td>Funcional
+   </td>
+   <td>Must
+   </td>
+   <td>Permite ao usuário criar conta para se registar nos eventos.
+   </td>
+   <td>US 01
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Listar eventos
+   </td>
+   <td>Funcional
+   </td>
+   <td>Must
+   </td>
+   <td>O sistema lista os eventos cadastrados para os perfis de usuário.
+   </td>
+   <td>US 02
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Criar eventos
+   </td>
+   <td>Funcional
+   </td>
+   <td>Must
+   </td>
+   <td>O usuário pode registrar um ou mais eventos.
+   </td>
+   <td>US 03
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Excluir evento
+   </td>
+   <td>Funcional
+   </td>
+   <td>Must
+   </td>
+   <td>O usuário pode excluir eventos criados por ele mesmo.
+   </td>
+   <td>US 04
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Excluir eventos de usuários
+   </td>
+   <td>Funcional
+   </td>
+   <td>Must
+   </td>
+   <td>O administrador pode apagar um evento, caso o mesmo seja ofensivo de alguma forma, por exemplo.
+   </td>
+   <td>US 05
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Banir usuário
+   </td>
+   <td>Funcional
+   </td>
+   <td>Must
+   </td>
+   <td>O administrador pode banir um usuário que tenha uma má conduta.
+   </td>
+   <td>US 06
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Editar
+<p>
+informações
+   </td>
+   <td>Funcional
+   </td>
+   <td>Must
+   </td>
+   <td>O usuário pode editar alguns de seus dados no sistema (Apelido, Pronome)
+   </td>
+   <td>US 12
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Editar evento
+   </td>
+   <td>Funcional 
+   </td>
+   <td>Must
+   </td>
+   <td>O usuário pode editar seu evento.
+   </td>
+   <td>US 13
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Comentários em eventos
+   </td>
+   <td>Funcional
+   </td>
+   <td>Could
+   </td>
+   <td>O usuário pode entrar em contato com o organizador do evento para tirar dúvidas.
+   </td>
+   <td>US 07
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Comentários em eventos
+   </td>
+   <td>Funcional
+   </td>
+   <td>Could
+   </td>
+   <td>O usuário pode entrar em contato com o organizador do evento para fazer sugestões ou comentar alguma opinião.
+   </td>
+   <td>US 08
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Acrescentar organizadores
+   </td>
+   <td>Funcional
+   </td>
+   <td>Could
+   </td>
+   <td>O organizador do evento pode atribuir um cargo de organizador para outros usuários
+   </td>
+   <td>US 09
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Denúncias
+   </td>
+   <td>Funcional
+   </td>
+   <td>Should
+   </td>
+   <td>O usuário pode denunciar um evento ou comentário impróprio / ofensivo 
+   </td>
+   <td>US 10
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Filtro de categorias
+   </td>
+   <td>Funcional
+   </td>
+   <td>Could
+   </td>
+   <td>O usuário pode filtrar os eventos disponíveis em categorias.
+   </td>
+   <td>US 11
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Expirar evento
+   </td>
+   <td>Funcional
+   </td>
+   <td>Should
+   </td>
+   <td>O evento deverá expirar e ser deletado ao fim da data informada pelo usuário
+   </td>
+   <td>US 14
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>Conformidade com a LGPD
+   </td>
+   <td>Não funcional
+   </td>
+   <td>Must
+   </td>
+   <td>O sistema deve ter sigilo quanto aos dados de usuários mantidos. Os usuários administradores não devem ver senhas cadastradas de usuário, por exemplo.
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+<h3 id="24-sprints-previstas">2.4 Sprints previstas</h3>
+<p>Tabela 4 - Sprints previstas</p>
+<table>
+  <tr>
+   <td colspan="4" >Sistema: GamaHub – Sprints previstas
+   </td>
+  </tr>
+  <tr>
+   <td># Sprint
+   </td>
+   <td>Descrição
+   </td>
+   <td>Objetivos
+   </td>
+   <td>Composição de itens do backlog (Lista conforme tabela Backlog do produto)
+   </td>
+  </tr>
+  <tr>
+   <td>1
+   </td>
+   <td>
+   </td>
+   <td>Prototipação do projeto
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>2
+   </td>
+   <td>
+   </td>
+   <td>Criar sistema de login de usuário
+   </td>
+   <td>Criar Conta
+   </td>
+  </tr>
+  <tr>
+   <td>3
+   </td>
+   <td>
+   </td>
+   <td>Criar home
+   </td>
+   <td>Visualizar eventos
+   </td>
+  </tr>
+  <tr>
+   <td>4
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>5
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>6
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>7
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>8
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+<h5 id="fonte-desenvolvedores-2023">Fonte: (Desenvolvedores, 2023)</h5>
+<h2 id="3-definicao-de-readydone">3. Definição de Ready/Done</h2>
+<ul>
+<li>Ready: Quando a equipe está apta a realizar a tarefa / Não necessita de um tempo para capacitação em questão, sua descrição está clara e alinhada com quem irá executar;</li>
+<li>Done: Quando a tarefa foi finalizada, testada e validada.</li>
+</ul>
+<h2 id="4-us-user-stories">4. US – User Stories</h2>
+<h5 id="tabela-5-user-stories">Tabela 5 - User Stories</h5>
+<table>
+  <tr>
+   <td>
+US 01
+   </td>
+   <td>Eu como visitante quero criar uma conta para interagir no site.
+   </td>
+  </tr>
+  <tr>
+   <td>US 02
+   </td>
+   <td>Eu como visitante quero que o sistema me mostre os eventos cadastrados, assim posso me informar rapidamente do que está acontecendo no momento antes de decidir se quero ficar na plataforma.
+   </td>
+  </tr>
+  <tr>
+   <td>US 03
+   </td>
+   <td>Eu como usuário quero cadastrar um evento, assim posso reunir pessoas para fazer algo de que gostamos.
+   </td>
+  </tr>
+  <tr>
+   <td>US 04
+   </td>
+   <td>Eu como usuário quero excluir um evento que eu tenha criado, pois desisti do plano inicial.
+   </td>
+  </tr>
+  <tr>
+   <td>US 05
+   </td>
+   <td>Eu como administrador quero apagar eventos criados por usuários, para evitar conteúdos ofensivos/desnecessários.
+   </td>
+  </tr>
+  <tr>
+   <td>US 06
+   </td>
+   <td>Eu como administrador quero poder banir um usuário, para evitar usuários maliciosos na plataforma.
+   </td>
+  </tr>
+  <tr>
+   <td>US 07
+   </td>
+   <td>Eu, como usuário, quero poder tirar dúvidas sobre os eventos, para não ter inconveniências no evento.
+   </td>
+  </tr>
+  <tr>
+   <td>US 08
+   </td>
+   <td>Eu, como usuário, quero poder comentar/sugerir nos eventos, para poder adicionar algo aos eventos.
+   </td>
+  </tr>
+  <tr>
+   <td>US 09
+   </td>
+   <td>Eu, como usuário, quero ter mais pessoas como organizadoras do meu evento, pois assim não ficaria sobrecarregado com tarefas.
+   </td>
+  </tr>
+  <tr>
+   <td>US 10
+   </td>
+   <td>Eu, como usuário, quero poder denunciar eventos/comentários maldosos/perigosos, assim posso ajudar a plataforma a ficar mais segura para usar.
+   </td>
+  </tr>
+  <tr>
+   <td>US 11
+   </td>
+   <td>Eu, como visitante, quero filtrar os eventos por categorias, assim posso encontrar eventos do meu interesse mais facilmente.
+   </td>
+  </tr>
+  <tr>
+   <td>US 12
+   </td>
+   <td>Eu, como usuário, quero poder editar informações do meu perfil, pois posso mudar algo em mim ou ter cometido algum erro no cadastro.
+   </td>
+  </tr>
+  <tr>
+   <td>US 13
+   </td>
+   <td>Eu, como usuário, quero poder editar informações do meu evento, pois posso mudar algo ou inserir novas informações.
+   </td>
+  </tr>
+  <tr>
+   <td>US 14
+   </td>
+   <td>Eu, como usuário, quero que meus eventos expiram automaticamente após o término, pois não há necessidade de fazer isso manualmente.
+   </td>
+  </tr>
+</table>
+
+<h2 id="5-diagrama-de-casos-de-uso">5. Diagrama de casos de uso</h2>
+<p>//</p>
+<h2 id="6-mvp">6. MVP</h2>
+<p>O MVP será atingido quando os requisitos / USs marcados como Must forem concluídos e devidamente validados, ou seja, o sistema deverá ser capaz de receber cadastros de usuários que irão cadastrar eventos e também poderão se cadastrar em eventos criados por outros usuários.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>

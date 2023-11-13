@@ -1,0 +1,1041 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="arquitetura/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>GamaHub - Grupo Orion</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#visao-do-produto-e-do-projeto-v011" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="." title="GamaHub - Grupo Orion" class="md-header__button md-logo" aria-label="GamaHub - Grupo Orion" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GamaHub - Grupo Orion
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Visão do Produto e do Projeto  v0.1.1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="mudar para modo claro"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="mudar para modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+    
+  
+  Visão do Produto e do Projeto  v0.1.1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="arquitetura/" class="md-tabs__link">
+        
+  
+    
+  
+  Documento de Arquitetura v0.1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="escopo/" class="md-tabs__link">
+        
+  
+    
+  
+  Declaração de Escopo do Produto v0.1.2
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="GamaHub - Grupo Orion" class="md-nav__button md-logo" aria-label="GamaHub - Grupo Orion" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    GamaHub - Grupo Orion
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Visão do Produto e do Projeto  v0.1.1
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Visão do Produto e do Projeto  v0.1.1
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-revisao" class="md-nav__link">
+    Histórico de Revisão
+  </a>
+  
+    <nav class="md-nav" aria-label="Histórico de Revisão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versao-01" class="md-nav__link">
+    Versão 0.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versao-01_1" class="md-nav__link">
+    Versão 0.1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-visao-geral-do-produto" class="md-nav__link">
+    1. Visão Geral do Produto
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Visão Geral do Produto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-problema" class="md-nav__link">
+    1.1 Problema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-declaracao-de-posicao-do-produto" class="md-nav__link">
+    1.2 Declaração de Posição do Produto
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Declaração de Posição do Produto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabela-1-declaracao-de-posicao-do-produto" class="md-nav__link">
+    Tabela 1 - Declaração de posição do produto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-objetivos-do-produto" class="md-nav__link">
+    1.3 Objetivos do Produto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-tecnologias-a-serem-utilizadas" class="md-nav__link">
+    1.4 Tecnologias a Serem Utilizadas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-visao-geral-do-projeto" class="md-nav__link">
+    2. Visão Geral do Projeto
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Visão Geral do Projeto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ciclo-de-vida-do-projeto-de-desenvolvimento-de-software" class="md-nav__link">
+    2.1 Ciclo de Vida do Projeto de Desenvolvimento de Software
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-organizacao-do-projeto" class="md-nav__link">
+    2.2 Organização do Projeto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-planejamento-das-fases-eou-iteracoes-do-projeto" class="md-nav__link">
+    2.3 Planejamento das Fases e/ou Iterações do Projeto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-matriz-da-comunicacao" class="md-nav__link">
+    2.4 Matriz da Comunicação
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-gerenciamento-de-riscos" class="md-nav__link">
+    2.5 Gerenciamento de Riscos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-criterios-de-replanejamento" class="md-nav__link">
+    2.6 Critérios de Replanejamento
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-processo-de-desenvolvimento-de-software" class="md-nav__link">
+    3. Processo de Desenvolvimento de Software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-detalhamento-de-atividades-do-projeto" class="md-nav__link">
+    4. Detalhamento de Atividades do Projeto
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Detalhamento de Atividades do Projeto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-atividade-1" class="md-nav__link">
+    4.1 Atividade 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-atividade-2" class="md-nav__link">
+    4.2 Atividade 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-atividade-3" class="md-nav__link">
+    4.3 Atividade 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-atividade-4" class="md-nav__link">
+    4.4 Atividade 4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-licoes-aprendidas" class="md-nav__link">
+    5. Lições Aprendidas
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Lições Aprendidas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-unidade-1" class="md-nav__link">
+    5.1 Unidade 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-unidade-2" class="md-nav__link">
+    5.2 Unidade 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-unidade-3" class="md-nav__link">
+    5.3 Unidade 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-unidade-4" class="md-nav__link">
+    5.4 Unidade 4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-proximos-passos" class="md-nav__link">
+    6. Próximos Passos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-referencias-bibliograficas" class="md-nav__link">
+    7. Referências Bibliográficas
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arquitetura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Arquitetura v0.1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="escopo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Declaração de Escopo do Produto v0.1.2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="visao-do-produto-e-do-projeto-v011">Visão do Produto e do Projeto  v0.1.1</h1>
+<h2 id="historico-de-revisao">Histórico de Revisão</h2>
+<h3 id="versao-01">Versão 0.1</h3>
+<ul>
+<li>Data: 02/10/2023</li>
+<li>Autor: <a href="https://github.com/rodwendrel/">Rodrigo Wendrel</a></li>
+<li>Reunião com foco em estruturar o documento e página de documentação com informações gerais do projeto.</li>
+</ul>
+<h3 id="versao-01_1">Versão 0.1</h3>
+<ul>
+<li>Data: 03/11/2023</li>
+<li>Autor: Rodrigo, Manoel, João Mateus</li>
+<li>Revisão e alinhamento de todos os documentos</li>
+</ul>
+<h2 id="1-visao-geral-do-produto">1. Visão Geral do Produto</h2>
+<h3 id="11-problema">1.1 Problema</h3>
+<p>Contexto: Dependências da Faculdade do Gama - UnB </br>
+Problema: Falta de espaço próprio e unificado para interação entre alunos na Faculdade do Gama (FGA), considerando que o CA não tem espaço pra quase nada, onde possam ser anunciados evento remotos ou presenciais criados por alunos, tais como jogos de cartas e tabuleiros, eventos esportivos casuais e encontros em grupo fora das dependências da faculdade.
+O aplicativo irá intermediar a organização de eventos entre estudantes.</p>
+<h3 id="12-declaracao-de-posicao-do-produto">1.2 Declaração de Posição do Produto</h3>
+<p>GamaHub se trata de uma aplicação web voltada para o corpo discente da Universidade de Brasília Faculdade Gama. Seu objetivo é gerar interação e inclusão entre os alunos por meio de eventos criados pelos mesmos. É uma forma fácil e simples de conhecer pessoas com interesses parecidos e assim, fazer novas relações que são necessárias e podem ser proveitosas dentro do meio acadêmico, pessoal e profissional.</p>
+<h5 id="tabela-1-declaracao-de-posicao-do-produto">Tabela 1 - Declaração de posição do produto</h5>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Para</td>
+<td>Estudantes do FGA</td>
+</tr>
+<tr>
+<td>Necessidade</td>
+<td>devido a falta de espaços físicos destinados para encontros para atividades de lazer</td>
+</tr>
+<tr>
+<td>O</td>
+<td>GamaHub</td>
+</tr>
+<tr>
+<td>Que</td>
+<td>Facilitar encontro de alunos do FGA para realizar atividades de lazer no FGA</td>
+</tr>
+<tr>
+<td>Ao contrário</td>
+<td>Amino</td>
+</tr>
+<tr>
+<td>Nosso produto</td>
+<td>É específico ao FGA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-objetivos-do-produto">1.3 Objetivos do Produto</h3>
+<p>O objetivo principal é criar um espaço para facilitar o encontro de pessoas com interesses específicos com outras de interesses similares dentro da FGA, além de ajudar a expandir a cultura e aproximar os estudantes.</p>
+<h3 id="14-tecnologias-a-serem-utilizadas">1.4 Tecnologias a Serem Utilizadas</h3>
+<p>Será utilizado o método ágil ScrumXP, a stack Javascript, com NodeJS para o backend, a biblioteca React com framework NextJS, Notion e Suíte Google para organização de documentos e sprints. O ambiente de desenvolvimento será o VsCode.</p>
+<h2 id="2-visao-geral-do-projeto">2. Visão Geral do Projeto</h2>
+<h3 id="21-ciclo-de-vida-do-projeto-de-desenvolvimento-de-software">2.1 Ciclo de Vida do Projeto de Desenvolvimento de Software</h3>
+<p><img alt="img" src="img/ciclo.png" /> </br>
+Considerando o contexto do projeto que é de uma aplicação sem muitos riscos envolvidos, o que não pede muito detalhamento de requisitos, e que o prazo é limitado, foi definido um ciclo de vida ágil, assim como os processos do ScrumXP, visando um produto de software que agrade os usuários e aceite mudanças de requisitos. As ferramentas utilizadas na organização foram o Notion, GitHub e Discord, onde os membros podem organizar códigos, fazer reuniões e registrar o progresso das sprints.</p>
+<h3 id="22-organizacao-do-projeto">2.2 Organização do Projeto</h3>
+<table>
+<thead>
+<tr>
+<th>Papel</th>
+<th>Atribuições</th>
+<th>Responsáveis</th>
+<th>Participantes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desenvolvedor</td>
+<td>Codificar o produto, codificar testes unitários, realizar refatoração.</td>
+<td>Manoel</td>
+<td>João, Lara, Manoel, </br>Rodrigo, Eduardo</td>
+</tr>
+<tr>
+<td>Dono do Produto</td>
+<td>Atualizar o escopo do produto, organizar o escopo das sprints, validar as entrega</td>
+<td>Manoel</td>
+<td>João, Lara, Manoel, </br>Rodrigo Eduardo</td>
+</tr>
+<tr>
+<td>Scrum Master</td>
+<td>Garantir a qualidade do produto, garantir o cumprimento do conceito de pronto, realizar inspeções de código</td>
+<td>Rodrigo</td>
+<td>Rodrigo</td>
+</tr>
+<tr>
+<td>Cliente</td>
+<td>Estudantes da FGA</td>
+<td>Estudantes da FGA</td>
+<td>Estudantes da FGA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-planejamento-das-fases-eou-iteracoes-do-projeto">2.3 Planejamento das Fases e/ou Iterações do Projeto</h3>
+<table>
+<thead>
+<tr>
+<th>Sprint</th>
+<th>Produto (Entrega)</th>
+<th>Data Início</th>
+<th>Data Fim</th>
+<th>Entregáveis</th>
+<th>Responsáveis</th>
+<th>% conclusão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sprint 1</td>
+<td>Definição do Produto</td>
+<td>11/09/2023</td>
+<td>02/10/2023</td>
+<td>(*)</td>
+<td>Todos os membros do grupo</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Sprint 2</td>
+<td>MVP e Planejamento do Projeto</td>
+<td>02/10/2023</td>
+<td>03/11/2023</td>
+<td>Documentação de Visão, Escopo e Arquitetura</td>
+<td>Todos os membros do grupo</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>Sprint 3</td>
+<td>Protótipo e capacitação nas tecnologias</td>
+<td>06/10/2023</td>
+<td>12/11/2023</td>
+<td>Protótipo, e atividades de desenvolvimento</td>
+<td>Todos os membros do grupo</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-matriz-da-comunicacao">2.4 Matriz da Comunicação</h3>
+<table>
+<thead>
+<tr>
+<th>Descrição</th>
+<th>Área/Envolvidos</th>
+<th>Periodicidade</th>
+<th>Produtos Gerados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comunicar situação do projeto</td>
+<td>Equipe</td>
+<td>Diariamente</td>
+<td>Ata de reunião básica</td>
+</tr>
+<tr>
+<td>Acompanhamento das Atividades em Andamento</td>
+<td>Equipe do Projeto <br> Prof/Monitor</td>
+<td>Semanal</td>
+<td>Ata de reunião </br> Relatório de situação do projeto</td>
+</tr>
+<tr>
+<td>Acompanhamento dos Riscos, Compromissos, Ações Pendentes, Indicadores</td>
+<td>Equipe do Projeto</td>
+<td>Semanal</td>
+<td>Ata de reunião </br> Relatório de situação</td>
+</tr>
+</tbody>
+</table>
+<h3 id="25-gerenciamento-de-riscos">2.5 Gerenciamento de Riscos</h3>
+<table>
+<thead>
+<tr>
+<th>Risco</th>
+<th>Grau de Exposição</th>
+<th>Mitigação</th>
+<th>Plano de contigência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diminuição da equipe trancamentos ou situações inesperadas</td>
+<td>Baixa</td>
+<td>Manter comunicação constante</td>
+<td>Redistribuir tarefas e reavaliar escopo do projeto</td>
+</tr>
+<tr>
+<td>Insuficiência da capacidade técnica da equipe</td>
+<td>Médio</td>
+<td>Pair programming com pessoas mais experientes</td>
+<td>Pair programming</td>
+</tr>
+<tr>
+<td>Perda de equipamentos e material de trabalho</td>
+<td>Baixo</td>
+<td>Manter cuidados de rotina</td>
+<td>Utilizar material emprestado - biblioteca ou em pair programming</td>
+</tr>
+<tr>
+<td>Má avaliação do escopo do projeto</td>
+<td>Médio</td>
+<td>Recorrer a monitores e ao professor para avaliação do backlog</td>
+<td>Reavaliar requisitos rapidamente</td>
+</tr>
+<tr>
+<td>Perda de contato com clientes e PO</td>
+<td>Médio</td>
+<td>Manter comunicação constante</td>
+<td>Recorrer a outras pessoas que possam se encaixar no perfil de usuários</td>
+</tr>
+<tr>
+<td>Falhas de comunicação entre membros da equipe</td>
+<td>Alto</td>
+<td>Manter comunicação constante</td>
+<td>Buscar pessoas ausentes e auxílio na gestão de equipes</td>
+</tr>
+<tr>
+<td>Dificuldade de encontrar horários comuns</td>
+<td>Médio</td>
+<td>Aproveitar o máximo possível os horários de aulas e pós-expediente</td>
+<td>Flexibilizar a forma de comunicação para assíncrona e manter todos sempre cientes da situação do projeto</td>
+</tr>
+<tr>
+<td>A qualidade do software não corresponder às expectativas do cliente</td>
+<td>Médio</td>
+<td>Verificar constantemente a validade do projeto</td>
+<td>Buscar entender melhor as necessidades do cliente e refatorar o produto; reavaliar escopo</td>
+</tr>
+<tr>
+<td>As atividades não forem concretizadas no prazo</td>
+<td>Médio</td>
+<td>Manter acompanhamento do trabalho e os processos do ScrumXP</td>
+<td>Aumentar carga de trabalho; reavaliar escopo do projeto</td>
+</tr>
+</tbody>
+</table>
+<h3 id="26-criterios-de-replanejamento">2.6 Critérios de Replanejamento</h3>
+<ul>
+<li>Diminuição da equipe (trancamentos ou situações inesperadas);</li>
+<li>Má avaliação do escopo do projeto</li>
+<li>A qualidade do software não corresponder às expectativas do cliente</li>
+<li>As atividades não forem concretizadas no prazo</li>
+</ul>
+<h2 id="3-processo-de-desenvolvimento-de-software">3. Processo de Desenvolvimento de Software</h2>
+<ul>
+<li>Sprint: 1 semana</li>
+<li>Planejamento: no início de cada sprint</li>
+<li>Retrospectiva e review: ao final de cada sprint</li>
+<li>Daily: diariamente através de meio de comunicação que seja rápida</li>
+</ul>
+<h2 id="4-detalhamento-de-atividades-do-projeto">4. Detalhamento de Atividades do Projeto</h2>
+<h3 id="41-atividade-1">4.1 Atividade 1</h3>
+<table>
+<thead>
+<tr>
+<th>Atividade</th>
+<th>Método</th>
+<th>Ferramenta</th>
+<th>Entrega</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Codificação</td>
+<td>Pair programming</td>
+<td>Chat por voz / VsCode / Live Coding</td>
+<td>Função definida na sprint</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-atividade-2">4.2 Atividade 2</h3>
+<table>
+<thead>
+<tr>
+<th>Atividade</th>
+<th>Método</th>
+<th>Ferramenta</th>
+<th>Entrega</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Revisão</td>
+<td>Pair review</td>
+<td>Chat por voz / VsCode / Live Coding</td>
+<td>Código revisado e validado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-atividade-3">4.3 Atividade 3</h3>
+<table>
+<thead>
+<tr>
+<th>Atividade</th>
+<th>Método</th>
+<th>Ferramenta</th>
+<th>Entrega</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Documentação</td>
+<td>(*)</td>
+<td>Google Docs / MkDocs</td>
+<td>Documento</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-atividade-4">4.4 Atividade 4</h3>
+<table>
+<thead>
+<tr>
+<th>Atividade</th>
+<th>Método</th>
+<th>Ferramenta</th>
+<th>Entrega</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Testes</td>
+<td>Testes de integração / Unitários</td>
+<td>A definir</td>
+<td>Relatório de testes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-licoes-aprendidas">5. Lições Aprendidas</h2>
+<h3 id="51-unidade-1">5.1 Unidade 1</h3>
+<p>Estruturação de documentos, colaboração e organização em equipe. </p>
+<h3 id="52-unidade-2">5.2 Unidade 2</h3>
+<p>//</p>
+<h3 id="53-unidade-3">5.3 Unidade 3</h3>
+<p>//</p>
+<h3 id="54-unidade-4">5.4 Unidade 4</h3>
+<p>//</p>
+<h2 id="6-proximos-passos">6. Próximos Passos</h2>
+<ul>
+<li>Prototipação do produto;</li>
+<li>Capacitação da equipe;</li>
+<li>Codificação do projeto;</li>
+</ul>
+<h2 id="7-referencias-bibliograficas">7. Referências Bibliográficas</h2>
+<p>//</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>
