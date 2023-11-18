@@ -10,6 +10,7 @@ export default function Home() {
       <Nav />
       <div className={dashboard}>
         <h1 className="">Mural de Eventos</h1>
+        <p>alou alou teste</p>
 
         <EventCard />
         
