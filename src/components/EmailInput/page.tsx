@@ -1,3 +1,4 @@
+import { input } from '@/app/create-account/styles.css';
 import React, { useState } from 'react';
 
 interface EmailInputProps {
@@ -24,7 +25,7 @@ const EmailInput: React.FC<EmailInputProps> = ({ onEmailChange }) => {
     <div>
       <input 
         placeholder="@aluno.unb.br" 
-        className="bg-[#f6f6f6] text-[#45BF55] text-center text-base w-[300px] p-2 m-3 rounded-[30px] border-2 border-solid border-[#e8e8e8]" 
+        className={input} 
         type="email"
         value={email}
         onChange={handleEmailChange}

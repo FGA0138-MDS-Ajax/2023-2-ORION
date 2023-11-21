@@ -1,13 +1,14 @@
-//import { EmailInput } from "../components/EmailInput/page";
 'use client'
-import EmailInput from "@/components/EmailImput/page";
+import EmailInput from "@/components/EmailInput/page";
+import { input } from "./styles.css";
+import Button from "@/components/Button/page";
 
 export default function signup() {
   const handleEmailChange = (email: string) => {
     console.log('Email changed:', email);
   };
   const handleSubmit = () => {
-    console.log('Email valido');
+    alert('Email valido');
   };
   return (
 
@@ -17,15 +18,16 @@ export default function signup() {
           <form>
             <h1 className="font-bold">Join the movement!</h1>
             <EmailInput onEmailChange={handleEmailChange} />
-            <input placeholder="sua incrivel senha" className="bg-[#f6f6f6] text-[#45BF55] text-center text-base w-[300px] p-2 m-3 rounded-[30px] border-2 border-solid border-[#e8e8e8]" type="password" name="senha" id="senha" />
-            <button type="submit" value="Acessar" onSubmit={handleSubmit}
-              className="bg-primary w-[200px] rounded-[30px] p-2 text-white font-bold hover:bg-primaryDark transition duration-100 ease-in-out"
-            > Registrar!
-            </button>
+            <input type='password' placeholder="sua incrivel senha" className={input} />
+            <Button 
+              text="Acesar"
+              width="w-[1/2]"
+              onClick={handleSubmit}
+            />
           </form>
         </div>
       </div>
-      <div className="bg-[green] grid place-items-center">
+      <div className="bg-primary grid place-items-center">
         
       </div>
 

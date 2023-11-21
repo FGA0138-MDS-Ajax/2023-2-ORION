@@ -9,9 +9,7 @@ export default function Home() {
     <>
       <Nav />
       <div className={dashboard}>
-        <h1 className="">Mural de Eventos</h1>
-        <p>alou alou teste</p>
-
+        <h1 className="font-bold text-2xl my-5">Mural de Eventos</h1>
         <EventCard />
         
       </div>

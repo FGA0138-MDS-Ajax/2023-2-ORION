@@ -1,4 +1,4 @@
-import { container } from "./styles.css";
+import {  container } from "./styles.css";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import PersonIcon from "@mui/icons-material/Person";
 import Button from "../Button/page";
@@ -16,7 +16,7 @@ export default function EventCard() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:3000/api/events', {
+      const response = await fetch(`http://localhost:3000/api/events`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
       }).then((res) => res.json())
@@ -49,10 +49,17 @@ export default function EventCard() {
               {events.date}
             </p>
           </span>
-          <Button text="Entrar" />
+          <div>
+            <Button
+              text="Entrar"
+              justify="flex justify-end"
+              width="w-20"
+              onClick={() => alert("Hello World")}
+            />
+          </div>
         </div>
       ))}
-      
+
     </div>
   );
 }
