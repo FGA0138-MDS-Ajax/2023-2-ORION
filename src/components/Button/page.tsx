@@ -3,7 +3,7 @@ interface ButtonProps {
   text: string;
   justify?: string;
   width: string;
-  onClick:() => void;
+  onClick?:() => void;
 }
 
 const Button = (props: ButtonProps) => {
