@@ -1,20 +1,30 @@
 interface ButtonProps {
+
   text: string;
-  onClick?: () => void;
+  justify?: string;
+  width: string;
+  onClick?:() => void;
 }
 
 const Button = (props: ButtonProps) => {
   return (
-    <div className="flex justify-end">
+    <div className={props.justify}>
       <button
-        className={`
-                bg-primary
-                w-1/4 
-                rounded-lg p-2
-                text-white font-bold 
-                hover:bg-primaryDark transition duration-100 ease-in-out`}
+        className={
+          props.width +
+            `
+              bg-primary
+                rounded-lg
+                m-3
+                px-[1.2em] py-[0.35em]
+                inline-block
+                box-border
+              text-white font-bold 
+              hover:bg-primaryDark transition duration-100 ease-in-out`}
+            onClick={props.onClick}
       >
         {props.text}
+        
       </button>
     </div>
   );
