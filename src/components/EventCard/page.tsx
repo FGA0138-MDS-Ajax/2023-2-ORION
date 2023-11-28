@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 type Event = {
   name: string;
   description: string;
-  autor: string;
-  date: string;
+  // autor: string;
+  // date: string;
 };
 
 export default function EventCard() {
@@ -40,13 +40,13 @@ export default function EventCard() {
               <i>
                 <PersonIcon />
               </i>
-              {events.autor}
+              {/* {events.autor} */}
             </p>
             <p>
               <i>
                 <CalendarMonthIcon />
               </i>
-              {events.date}
+              {/* {events.date} */}
             </p>
           </span>
           <div>

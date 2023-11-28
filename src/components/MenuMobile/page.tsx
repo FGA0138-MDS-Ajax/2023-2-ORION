@@ -22,7 +22,7 @@ const MenuMobile = () => {
             <div>
                 <ul className={navbar ? ul : 'hidden'}>
                     
-                    <li><Link className='' href="/create-account">Criar conta</Link></li>
+                    <li><Link className='' href="/signup">Criar conta</Link></li>
                     <li><Link className={link} href="/login">Entrar</Link></li>
                 </ul>
             </div>

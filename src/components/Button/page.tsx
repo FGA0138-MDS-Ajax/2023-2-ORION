@@ -3,7 +3,7 @@ interface ButtonProps {
   text: string;
   justify?: string;
   width: string;
-  onClick?:() => void;
+  onClick?: () => void;
 }
 
 const Button = (props: ButtonProps) => {
@@ -12,7 +12,7 @@ const Button = (props: ButtonProps) => {
       <button
         className={
           props.width +
-            `
+          `
               bg-primary
                 rounded-lg
                 m-3
@@ -21,10 +21,12 @@ const Button = (props: ButtonProps) => {
                 box-border
               text-white font-bold 
               hover:bg-primaryDark transition duration-100 ease-in-out`}
-            onClick={props.onClick}
+        onClick={props.onClick}
+
+
       >
         {props.text}
-        
+
       </button>
     </div>
   );

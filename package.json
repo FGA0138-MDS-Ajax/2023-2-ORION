@@ -13,8 +13,12 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.17",
+    "bcryptjs": "^2.4.3",
     "formik": "^2.4.5",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.1",
     "next": "^14.0.1",
+    "next-auth": "^4.24.5",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18"

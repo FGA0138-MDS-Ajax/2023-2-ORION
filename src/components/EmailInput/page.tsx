@@ -1,4 +1,4 @@
-import { input } from '@/app/create-account/styles.css';
+import { input } from '@/app/signup/styles.css';
 import React, { useState } from 'react';
 
 interface EmailInputProps {
@@ -19,13 +19,15 @@ const EmailInput: React.FC<EmailInputProps> = ({ onEmailChange }) => {
   const validateEmail = (input: string) => {
     const isValidEmail = input.endsWith('@aluno.unb.br');
     setIsValid(isValidEmail);
+
   };
 
   return (
     <div>
-      <input 
-        placeholder="@aluno.unb.br" 
-        className={input} 
+      <input
+        required
+        placeholder="@aluno.unb.br"
+        className={input}
         type="email"
         value={email}
         onChange={handleEmailChange}

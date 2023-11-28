@@ -7,7 +7,7 @@ export const MenuDesktop = () => {
             <ul className={ul}>
                 <li><Link className={`
                 font-bold
-                `} href="/create-account">Criar conta</Link></li>
+                `} href="/signup">Criar conta</Link></li>
                 <li><Link className={link} href="/login">Entrar</Link></li>
             </ul>
         </>
