@@ -1,6 +1,4 @@
 "use client"
-
-import { textInput, bgOffwhite, dashboard, img} from "./styles.css"
 import { input } from '@/app/create-account/styles.css';
 import Image from "next/image";
 import SignedEvents from "@/components/SignedEvents/page"
