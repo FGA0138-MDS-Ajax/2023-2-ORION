@@ -16,7 +16,7 @@ export default function EventCard() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:3000/api/events`, {
+      const response = await fetch(`/api/events`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
       }).then((res) => res.json())
