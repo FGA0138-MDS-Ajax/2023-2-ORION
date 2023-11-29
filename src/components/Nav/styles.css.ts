@@ -1,32 +1,42 @@
 export const nav = `
     bg-primary 
-    p-5
-    mx-0 my-auto
+    w-full
+`
+
+export const container = `
+    max-w-screen
     flex
-    flex-row
-    justify-between
+    flex-wrap
     items-center
+    justify-between
+    mx-auto
+    p-5
 
-    max-sm:gap-5
+    md:justify-evenly
 `
+
+
 export const ul = `
-
-
-    `
-export const search = `
-    bg-white 
-    py-2 px-5  
-    rounded-xl 
+    font-medium
     flex
-    w-1/2
+    flex-col
+    items-center
+    justify-center
 
-    max-sm:w-full
+    md:flex-row
+    md:justify-end
+    md:bg-primary
+    md:items-center  
+    md:w-auto
+    gap-10
+    `
 
-`
-
-export const img = `
-block
-max-sm:hidden
-ml-5
-
+export const li = `
+   gap-5
+   bg-white
+   rounded-md
+   px-[1.2em] py-[0.50em]
+   font-bold
+   hover:bg-offWhite transition duration-100 ease-in-out
+   
 `

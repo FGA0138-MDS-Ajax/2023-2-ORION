@@ -14,9 +14,9 @@ const Button = (props: ButtonProps) => {
           props.width +
           `
               bg-primary
-                rounded-lg
+                rounded-md
                 m-3
-                px-[1.2em] py-[0.35em]
+                px-[1.2em] py-[0.50em]
                 inline-block
                 box-border
               text-white font-bold 
