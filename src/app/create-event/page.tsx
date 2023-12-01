@@ -20,6 +20,7 @@ export default function CreateEvent() {
         const name = event.target[0].value;
         const location = event.target[1].value;
         const description = event.target[2].value;
+        const date = event.target[3].value;
         const creator = session?.user?._id
         const participants = []
 
@@ -27,12 +28,12 @@ export default function CreateEvent() {
         
 
         try {
-            const response = await fetch('/api/create-event', {
+            const response = await fetch('/api/events/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, location, description, creator, participants: []})
+                body: JSON.stringify({ name, location, description, date, creator, participants: []})
             })
             if (response.status == 400) {
                 setError('Erro ao criar evento')
@@ -62,9 +63,11 @@ export default function CreateEvent() {
 
                 <div>
                     <form className={form} onSubmit={handleCreate}>
-                        <input type="text" placeholder="nome do evento" />
-                        <input type="text" placeholder="local (ex: quadra de esportes)" />
-                        <input type="text" placeholder="descrição" />
+                        <input type="text" placeholder="Nome do evento" />
+                        <input type="text" placeholder="Local (ex: quadra de esportes)" />
+                        <input type="text" placeholder="Descrição" />
+                        <label className="text-left">Data</label>
+                        <input type="date" />
                         <Button
                             text="Criar evento"
                             justify="center"

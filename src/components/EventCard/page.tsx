@@ -30,14 +30,14 @@ export default function EventCard() {
     fetchData()
   }, [])
 
- 
+
   async function getUser() {
- 
-      const session = await getSession();
-      console.log(session?.user?._id)
+
+    const session = await getSession();
+    console.log(session?.user?._id)
   }
 
-getUser()
+  getUser()
 
   return (
 
@@ -59,7 +59,13 @@ getUser()
               <i>
                 <CalendarMonthIcon />
               </i>
-              {/* {events.date} */}
+              {new Date(events.date).toLocaleDateString('pt-BR')}
+            </p>m
+            <p>
+              <i>
+                <LocationOnIcon/>
+              </i>
+              {events.location}
             </p>
           </span>
           <div>

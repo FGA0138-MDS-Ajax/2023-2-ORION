@@ -3,7 +3,7 @@ import Event from "@/models/Event";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-    const { name, description, location, creator, participants } = await request.json();
+    const { name, description, location, creator, date, participants } = await request.json();
 
     await connect();
 
@@ -12,6 +12,7 @@ export async function POST(request: NextRequest) {
             name,
             location,
             description,
+            date,
             creator,
             participants
         });
