@@ -1,5 +1,3 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
 import {  container } from "./styles.css";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import PersonIcon from "@mui/icons-material/Person";
@@ -29,12 +27,6 @@ export default function EventCard() {
     fetchData()
   }, [])
 
-  const history = useHistory();
-  const handleClick = () => {
-    // Navega para a rota especificada
-    history.push('/outra-pagina');
-  };
-
   return (
 
     <div className={container}>
@@ -62,7 +54,7 @@ export default function EventCard() {
               text="Entrar"
               justify="flex justify-end"
               width="w-20"
-              onClick={handleClick}
+              onClick={() => alert("Hello World")}
             />
           </div>
         </div>
