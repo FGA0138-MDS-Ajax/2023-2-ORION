@@ -1,15 +1,18 @@
-import {  container } from "./styles.css";
+import { container } from "./styles.css";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import PersonIcon from "@mui/icons-material/Person";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Button from "../Button/page";
 import { useEffect, useState } from "react";
+import { getSession } from "next-auth/react";
 
 type Event = {
   name: string;
   description: string;
-  // autor: string;
-  // date: string;
+  creator: string;
+  date: string;
 };
+
 
 export default function EventCard() {
   const [events, setEvents] = useState<Event[]>([])
@@ -27,11 +30,21 @@ export default function EventCard() {
     fetchData()
   }, [])
 
+ 
+  async function getUser() {
+ 
+      const session = await getSession();
+      console.log(session?.user?._id)
+  }
+
+getUser()
+
   return (
 
     <div className={container}>
 
-      {events.map((events, index) => (
+
+      {events.map((events: any, index: any) => (
         <div key={index} className="gap-0">
           <h3 className="font-bold text-lx">{events.name}</h3>
           <p>{events.description}</p>
@@ -40,7 +53,7 @@ export default function EventCard() {
               <i>
                 <PersonIcon />
               </i>
-              {/* {events.autor} */}
+              {/* {events._id} */}
             </p>
             <p>
               <i>
@@ -58,7 +71,9 @@ export default function EventCard() {
             />
           </div>
         </div>
+
       ))}
+      {!events ? (<p>Não há eventos cadastrados</p>) : null}
 
     </div>
   );

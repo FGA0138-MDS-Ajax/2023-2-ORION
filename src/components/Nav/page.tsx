@@ -1,5 +1,4 @@
 'use client'
-
 import { nav, ul, li, container } from "./styles.css";
 import SearchIcon from "@mui/icons-material/Search";
 import Image from "next/image";
@@ -8,15 +7,22 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useState } from "react";
 import Link from "next/dist/client/link";
 import { signOut, useSession } from "next-auth/react";
-
+import Avatar from "@/components/Avatar/page";
+import { useRouter } from "next/navigation";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { data: session } = useSession();
 
+  const router = useRouter()
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen)
+  }
+
+  async function logout() {
+    await signOut({ redirect: false })
+    router.replace("/")
   }
 
   const Links = () => {
@@ -28,9 +34,22 @@ const Nav = () => {
         </ul>
       ) : (
         <div className={ul}>
-          <span>Olá, {session.user?.email}</span>
+          <Link className={`
+          flex 
+          flex-row-reverse
+          items-center
+          gap-2
+          md:flex-row
+          
+          `} href="/my-account">
+            <Avatar
+              name={session.user?.name || ''}
+            />
+            Minha conta
+          </Link>
+
           <li className="list-none">
-            <button className={li} onClick={() => signOut()}>Sair</button>
+            <button className={li} onClick={logout}>Sair</button>
           </li>
         </div>
       )}
@@ -45,9 +64,10 @@ const Nav = () => {
         <div className="hidden w-full md:block md:w-auto">
           <Links />
         </div>
-        <div className="md:hidden">
+        <div className="md:hidden mx-1">
           <button onClick={toggleNavbar}>
             {isOpen ? <CloseIcon /> : <MenuIcon />}
+            {}
           </button>
         </div>
       </div>
@@ -57,28 +77,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
-//     {/* <nav className={nav}>
-//       <a href="/">
-//         <Image className={img} src="/img/logo.svg" alt="Logo" width={150} height={100} />
-//       </a>
-//       <div className={search}>
-//         <i>
-//           <SearchIcon className="text-offWhite" />
-//         </i>
-//         <input
-//           className="placeholder:text-offWhite focus:outline-none w-full "
-//           type="search"
-//           name=""
-//           id=""
-//           placeholder="Buscar por evento"
-//         />
-//       </div>
-//       <div>
-//        {width ? <MenuMobile /> : <MenuDesktop />}
-//       </div>
-
-
-//     </nav> */}
-
-// );

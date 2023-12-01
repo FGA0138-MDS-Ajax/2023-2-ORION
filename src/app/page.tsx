@@ -1,7 +1,7 @@
 "use client"
+import { dashboard } from "./styles.css";
 import EventCard from "@/components/EventCard/page";
 import Nav from "../components/Nav/page";
-import { dashboard } from "./styles.css";
 import SearchBar from "@/components/SearchBar/page";
 
 export default function Home() {

@@ -2,12 +2,17 @@ import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({ setSearch }: any) => {
     const { data: session } = useSession();
+    const [filter, setFilter] = useState('');
 
-    
+    const search = (event: any) => {
+        setFilter(event.target.value);
 
+    }
+    console.log(filter);
     return <div className='flex justify-center items-center gap-5'>
         <div className={
             `
@@ -31,8 +36,8 @@ const SearchBar = () => {
             <input
                 className="placeholder:text-black focus:outline-none w-full "
                 type="search"
-                name=""
-                id=""
+                value={filter}
+                onChange={search.bind(this)}
                 placeholder="Buscar por evento"
             />
         </div>
@@ -47,7 +52,7 @@ const SearchBar = () => {
             rounded-full 
             text-white
             hover:bg-primaryDark transition duration-100 ease-in-out
-            `} href="#">
+            `} href="/create-event">
                 <AddIcon
                 />
             </Link>

@@ -1,6 +1,7 @@
 export const nav = `
     bg-primary 
     w-full
+    h-full
 `
 
 export const container = `
@@ -10,7 +11,7 @@ export const container = `
     items-center
     justify-between
     mx-auto
-    p-5
+    p-2
 
     md:justify-evenly
 `
@@ -19,9 +20,12 @@ export const container = `
 export const ul = `
     font-medium
     flex
+    text-right
     flex-col
-    items-center
-    justify-center
+    justify-right
+    bg-primary
+    p-5
+    rounded-md
 
     md:flex-row
     md:justify-end

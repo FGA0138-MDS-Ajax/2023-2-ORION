@@ -4,7 +4,7 @@ import Button from "@/components/Button/page"
 import { input } from "./styles.css"
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { Alert } from "@mui/material";
@@ -38,7 +38,8 @@ export default function login() {
         const response = await signIn("credentials", {
             redirect: false,
             email,
-            password
+            password,
+            callbackUrl: '/'
         })
 
         if (response?.error) {
@@ -49,7 +50,6 @@ export default function login() {
             setError('')
             
         }
-
     }
     return (
         <div className="bg-[white] m-auto h-screen w-screen text-center relative overflow-hidden flex justify-center items-center">

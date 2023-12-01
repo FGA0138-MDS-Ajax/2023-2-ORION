@@ -24,8 +24,12 @@ export default function Signup() {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
-    const email = event.target[0].value;
-    const password = event.target[1].value;
+    const name = event.target[0].value;
+    const email = event.target[1].value;
+    const password = event.target[2].value;
+    const alias = ''
+    const events = []
+    
 
     if (!isValidEmail(email)) {
       setError('Email inválido')
@@ -38,7 +42,7 @@ export default function Signup() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ name, email, password, alias, events:[] })
       })
       if (response.status == 400) {
         setError('Email já cadastrado')
@@ -79,6 +83,7 @@ export default function Signup() {
           <form onSubmit={handleSubmit}>
             <h1 className="font-normal text-black  tex text-[3rem]">Crie sua conta</h1>
             <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10"/>
+            <input type="text" placeholder="Seu nome" className={input} required />
             <EmailInput onEmailChange={handleEmailChange} />
             <input type='password' placeholder="Sua senha" className={input} required />
             <Button

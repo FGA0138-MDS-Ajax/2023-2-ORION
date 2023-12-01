@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 const bcrypt = require('bcryptjs');
 
 export async function POST(request: NextRequest) {
-    const { email, password } = await request.json(); //Deestruturando o body da requisição
+    const { name, email, password, alias, events } = await request.json(); //Deestruturando o body da requisição
 
     await connect(); //chama a variável de conexão com o banco de dados da pasta lib
 
@@ -20,8 +20,11 @@ export async function POST(request: NextRequest) {
     try{
         // criando um novo usuário
         const newUser = new User({
+            name,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            alias, 
+            events
         });
 
         // salvando o usuário no banco de dados

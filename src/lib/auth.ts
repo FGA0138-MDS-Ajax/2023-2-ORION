@@ -10,6 +10,7 @@ export const authOptions: any = {
             id: 'credentials',
             name: 'Credentials',
             credentials: {
+                name: { label: "Name", type: "text" },
                 email: { label: "Email", type: "text" },
                 password: { label: "Password", type: "password" }
             },
@@ -22,8 +23,13 @@ export const authOptions: any = {
                         const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password)
                         if (isPasswordCorrect) {
                             return user
+                            
                         }
+
+                        
                     }
+
+
                 } catch (error: any) {
                     throw new Error(error)
                 }
@@ -32,4 +38,15 @@ export const authOptions: any = {
         })
 
     ],
+    callbacks: {
+        async jwt({token, user }: { token: any, user: any}) {
+            user && (token.user = user)
+            return token
+    },
+        async session({session, token}: { token: any, session: any}) {
+            session.user = token.user as any
+            return session
+        }
+    },
+
 }
