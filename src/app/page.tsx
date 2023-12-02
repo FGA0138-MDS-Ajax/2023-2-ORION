@@ -4,6 +4,8 @@ import EventCard from "@/components/EventCard/page";
 import Nav from "../components/Nav/page";
 import SearchBar from "@/components/SearchBar/page";
 
+
+
 export default function Home() {
   return (
     <>

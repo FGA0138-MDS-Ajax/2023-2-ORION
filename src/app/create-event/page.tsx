@@ -21,7 +21,7 @@ export default function CreateEvent() {
         const location = event.target[1].value;
         const description = event.target[2].value;
         const date = event.target[3].value;
-        const creator = session?.user?._id
+        const creator = session?.user._id
         const participants = []
 
         console.log(name, location, description, creator)
@@ -73,7 +73,6 @@ export default function CreateEvent() {
                             justify="center"
                             width="w-full"
                         />
-
                         <Link className={back}
                             href='/'><ArrowBackIcon />voltar</Link>
                     </form>

@@ -19,30 +19,38 @@ export default function EventCard() {
 
   useEffect(() => {
     const fetchData = async () => {
+      const session = await getSession();
       const response = await fetch(`/api/events`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
       }).then((res) => res.json())
 
-      setEvents(response)
+      const temp = []
+
+      for await (const events of response) {
+        let creatorId = events.creator
+
+        const users = await fetch(`/api/user/${creatorId}`)
+          .then((res) => res.json())
+          .then((data) => data.name)
+
+          temp.push({ ...events, creator: users })
+      }
+
+      setEvents(temp)
+
+      console.log(response)
     }
 
+
     fetchData()
+
+
   }, [])
-
-
-  async function getUser() {
-
-    const session = await getSession();
-    console.log(session?.user?._id)
-  }
-
-  getUser()
 
   return (
 
     <div className={container}>
-
 
       {events.map((events: any, index: any) => (
         <div key={index} className="gap-0">
@@ -53,17 +61,17 @@ export default function EventCard() {
               <i>
                 <PersonIcon />
               </i>
-              {/* {events._id} */}
+              {events.creator}
             </p>
             <p>
               <i>
                 <CalendarMonthIcon />
               </i>
               {new Date(events.date).toLocaleDateString('pt-BR')}
-            </p>m
+            </p>
             <p>
               <i>
-                <LocationOnIcon/>
+                <LocationOnIcon />
               </i>
               {events.location}
             </p>
