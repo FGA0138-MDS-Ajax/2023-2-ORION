@@ -36,7 +36,7 @@ interface AvatarProps {
 }
 export default function BackgroundLetterAvatars(props: AvatarProps) {
   return (
-    <Stack className='' direction="row" spacing={2}>
+    <Stack className="border-white border-[3px] rounded-full" direction="row" spacing={2}>
       <Avatar  {...stringAvatar(props.name)} />
     </Stack>
   );

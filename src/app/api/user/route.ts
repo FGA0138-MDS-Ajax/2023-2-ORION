@@ -4,7 +4,7 @@ import User from "@/models/User";
 import { getServerSession } from "next-auth/next";
 import { NextApiRequest } from "next";
 
-export const GET = async (req: NextApiRequest, res: NextResponse) => {
+export const GET = async (req: NextRequest, res: NextResponse) => {
 
 
     // const user = req.query
