@@ -7,16 +7,18 @@ import { NextApiRequest } from "next";
 export const GET = async (req: NextApiRequest, res: NextResponse) => {
 
 
-    const user = req.query
- 
+    // const user = req.query
+    const session = await getServerSession()
+    console.log(session?.user?.email)
+
     try {
 
-        const session = await getServerSession()
+        
         // if(!session){
         //     return new NextResponse("Usuário não autenticado", { status: 401 })
         // }
         await connect()
-        const users = await User.find(user, '_id name')
+        const users = await User.find()
         return NextResponse.json(users, { status: 200 })
 
 
