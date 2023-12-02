@@ -6,6 +6,7 @@ import Button from "../Button/page";
 import { useEffect, useState } from "react";
 import { getSession } from "next-auth/react";
 
+
 type Event = {
   name: string;
   description: string;

@@ -8,6 +8,7 @@ import { Alert } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default function Signup() {
   const [error, setError] = useState<string>('');
   const router = useRouter()
