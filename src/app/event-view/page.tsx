@@ -1,10 +1,9 @@
 "use client"
-import { input } from '@/app/signup/styles.css';
+import { input } from '@/app/event-view/styles.css';
 import Image from "next/image";
 
 export default function Evento() {
     return (
-
         <div className="bg-[offwhite] flex flex-col justify-center items-center h-screen">
             <div className="bg-primary h-[10%] w-5/6 rounded-t-xl flex-row grid grid-cols-3 justify-center text-center items-center">
                 
@@ -28,15 +27,16 @@ export default function Evento() {
             <div className="bg-white w-5/6 h-[80%] mx-auto rounded-b-xl grid justify-center text-center flex-row">
                 <div className="m-[10%] text-[16px] bold text-left">
                     <h2>Título:</h2>
-                    <div className={input}>
-                        Xadrez eliminatórias
-                    </div>
+                    <input className={input} placeholder="Um nome legal" type="text" id="title" name="title" required />
                     
                     <h2>Descrição:</h2>
-                    <div className={input}>
-                        Semifinais do semestre
-                    </div>
-
+                    <textarea className={input} id="description" name="description" required></textarea>
+                    
+                    <h2>Data:</h2>
+                    <input className={input} type="date" id="date" name="date" required></input>
+                    
+                    <h2>Horário</h2>
+                    <input className={input} type="time" id="time" name="time" required />
                     
                     <a href="">
                         <div className="flex flex-row text-primary">
@@ -48,7 +48,6 @@ export default function Evento() {
                         </div>
                     </a>
                 </div>
-                
 
             </div>
             
