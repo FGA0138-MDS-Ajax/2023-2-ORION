@@ -76,7 +76,34 @@ export default function EventCard() {
               text="Entrar"
               justify="flex justify-end"
               width="w-20"
-              onClick={() => alert("Hello World")}
+              onClick={() => {
+                ///*
+                const pegaPerfil = async () => {
+                  const session = await getSession();
+                  const data = {
+                    eventid: events._id,
+                    userid: session?.user._id,
+                  }
+                  const response = await fetch(`/api/events/entrar`, {
+                  
+                    method: 'PUT',
+                    body: JSON.stringify(data),
+                    headers: {'Content-Type': 'aplication/json'}
+                    
+
+                  }).then((response) => {
+                    //console.log(response)
+                    //alert(response)
+                    response.json()
+                  })
+                  .catch((err) => {
+                    alert("Putz, algo deu errado aqui, tenta de novo!")
+                  })
+
+                }
+                
+                pegaPerfil()//*/
+                }}
             />
           </div>
           <hr className="text-black w-full flex justify-start items-center my-5 opacity-10" />
