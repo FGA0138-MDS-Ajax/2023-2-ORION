@@ -53,31 +53,31 @@ export default function CreateEvent() {
 
     }
 
-
-
     return (
         <div >
             <Nav />
             <div className={container}>
+                <h1 className={`font-bold text-2xl mt-10`}>Criar um evento</h1>
+                <br />
                 {error && <Alert severity="error">{error}</Alert>}
-
-                <h1 className={`font-bold text-2xl my-5"`}>Criar um evento</h1>
                 <div>
                     <form className={form} onSubmit={handleCreate}>
                         <input className={input} type="text" placeholder="Nome do evento" />
                         <input className={input} type="text" placeholder="Local (ex: quadra de esportes)" />
                         {/* <input className={input} type="" placeholder="Descrição" /> */}
                         <textarea placeholder="Descrição" className={input} cols={30} rows={10}></textarea>
-                        <label className="text-left">Data</label>
-                        <input className={input} type="date" />
 
-                        <div className="flex m-auto w-full justify-between">
+                        <div className="flex flex-col items-left ">
+                            <label className="text-left ml-[16px]  opacity-40">Data do evento</label>
+                            <input className={input} type="date" />
+                        </div>
+
+                        <div className="flex flex-row-reverse p-5 justify-between">
                             <Button
                                 text="Criar evento"
                                 justify="center"
                                 width=""
                             />
-
                             <Link className={back}
                                 href='/'>
                                 <ArrowBackIcon className={`

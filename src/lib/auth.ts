@@ -12,7 +12,8 @@ export const authOptions: any = {
             credentials: {
                 name: { label: "Name", type: "text" },
                 email: { label: "Email", type: "text" },
-                password: { label: "Password", type: "password" }
+                password: { label: "Password", type: "password" },
+                events: { label: "Events", type: "text" }
             },
             async authorize(credentials: any) {
                 await connect()

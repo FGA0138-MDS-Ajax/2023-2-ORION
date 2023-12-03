@@ -1,7 +1,9 @@
+'use client'
+
 import {  container } from "./styles.css"
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import PersonIcon from "@mui/icons-material/Person";
-import Button from "../Button/page";
+import Button from "../../components/Button/page";
 import { useEffect, useState } from "react";
 
 type Event = {

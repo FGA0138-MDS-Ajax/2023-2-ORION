@@ -1,5 +1,6 @@
 import connect from "@/lib/mongodb";
 import Event from "@/models/Event";
+import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
@@ -8,6 +9,7 @@ export async function POST(request: NextRequest) {
     await connect();
 
     try {
+
         const newEvent = new Event({
             name,
             location,
@@ -18,6 +20,10 @@ export async function POST(request: NextRequest) {
         });
 
         await newEvent.save();
+
+        const eventCreator = await User.findById(creator);
+        eventCreator.events.push(newEvent);
+        await eventCreator.save();
 
         return new NextResponse(JSON.stringify({
             message: "Event created successfully",
