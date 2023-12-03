@@ -1,12 +1,10 @@
-'use client'
+"use client"
 import Nav from "@/components/Nav/page"
-import { container, form, back } from "./styles.css"
 import Button from "@/components/Button/page"
-import { input } from '@/app/signup/styles.css';
-import SignedProfiles from "@/components/SignedProfiles/page"
+import { container, input } from '@/app/event/styles.css';
+import Image from "next/image";
 
 export default function Event() {
-
     return (
         <div>
             <Nav />
@@ -14,30 +12,32 @@ export default function Event() {
                 <div className='flex justify-center items-center'>
                     <div>
                         <h1 className="font-normal text-black  tex text-[3rem]">%Nome do Evento%</h1>
-                        <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10" />
-                        <h2 className="mt-3">Local</h2>
-                        <div className={`m-auto mb-3 ${input}`}>%Local%</div>
-                        <h2>data</h2>
-                        <div className={`m-auto mb-3 ${input}`}>%data%</div>
-                        <h2>Descrição</h2>
-                        <div className={`m-auto mb-3 ${input}`}>%Descrição%</div>
-                        <h2>Participantes</h2>
-                        <div className={`m-auto mb-3 ${input}`}><SignedProfiles /></div>
+
+                        <h2>Local:</h2>
+                        <input className={input} placeholder="Na graminha..." type="text" id="local" name="local" required />
                         
-                        {/* <span>
-                                    <Link
-                                        className={`hover:text-primaryDark hover:font-bold transition duration-500 ease-in-out`}
-                                        href="/recover-password">
-                                        Esqueci minha senha
-                                    </Link>
-                                </span> */}
+                        <h2>Descrição:</h2>
+                        <textarea className={input} placeholder="Minha jogatina será nível intrmediário e tem vagas limitadas..." id="description" name="description" required></textarea>
+                        
+                        <h2>Data:</h2>
+                        <input className={input} type="date" id="date" name="date" required></input>
+                        
+                        <h2>Horário</h2>
+                        <input className={input} type="time" id="time" name="time" required />
+                        
+                        <h2>Participantes:</h2>
+                        <textarea className={input} placeholder="Eu, o pessoal de C2, ..." id="participants" name="participants" required></textarea>
+                        
                         <Button
                             text="Cadastrar-se"
                             width="w-[300px]"
                         />
+
                     </div>
+
                 </div>
+                
             </div>
         </div>
-    )
+    ) 
 }
