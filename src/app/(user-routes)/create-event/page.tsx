@@ -4,7 +4,7 @@ import { container, form, back, input } from "./styles.css"
 import Button from "@/components/Button/page"
 import Link from "next/link"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react"
 import { Alert } from "@mui/material";
@@ -16,12 +16,6 @@ export default function CreateEvent() {
 
     const { data: session } = useSession();
 
-    useEffect(() => {
-        if (!session) {
-            router.replace('/')
-        }
-    }, [session, router])
-    
 
     const handleCreate = async (event: any) => {
         event.preventDefault();
@@ -49,7 +43,7 @@ export default function CreateEvent() {
             }
             if (response.status == 201) {
                 setError('');
-                router.push('/')
+                router.push('/edit-profile')
             }
             if (response.status == 500) {
                 setError('Preencha todos os campos');

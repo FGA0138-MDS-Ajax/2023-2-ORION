@@ -6,24 +6,15 @@ import Nav from '@/components/Nav/page';
 import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useSession } from 'next-auth/react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import MyEvents from '@/components/MyEvents/page';
-import { useRouter } from "next/navigation";
 
 
 
 export default function EditProfile() {
     const [changePassword, setChangePassword] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
-    const router = useRouter()
     const { data: session } = useSession();
-
-
-    useEffect(() => {
-        if (!session) {
-            router.replace('/')
-        }
-    }, [session])
 
     function handleChangePassword(e: any) {
         e.preventDefault()
