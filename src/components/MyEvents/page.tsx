@@ -67,65 +67,69 @@ export default function MyEvents() {
             window.location.reload()
         }
     }
-        async function updateEvent(e: any, eventId: any) {
-            e.preventDefault()
+    async function updateEvent(e: any, eventId: any) {
+        e.preventDefault()
 
-            const name = e.target[0].value
-            const description = e.target[1].value
-            const location = e.target[2].value
-            const date = e.target[3].value
+        const name = e.target[0].value
+        const description = e.target[1].value
+        const location = e.target[2].value
+        const date = e.target[3].value
 
 
-            const response = await fetch(`/api/events/${eventId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, description, location, date })
+        const response = await fetch(`/api/events/${eventId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, description, location, date })
 
-            })
+        })
 
+        if (response.ok) {
+            window.location.reload()
         }
 
-        const handleToggleEdit = (eventId: any) => {
-            if (editingEventId === eventId) {
-                setEditingEventId(null);
-            } else {
-                setEditingEventId(eventId);
-            }
-        };
-        return (
-            <div>
-                <div className={eventsContainer}>
+    }
 
-                    <h1 className="font-bold text-2xl my-5 text-center">Meus eventos</h1>
-                    {events.map((events: any) => (
-                        <div key={events._id} className="gap-0">
+    const handleToggleEdit = (eventId: any) => {
+        if (editingEventId === eventId) {
+            setEditingEventId(null);
+        } else {
+            setEditingEventId(eventId);
+        }
+    };
+    return (
+        <div>
+            <div className={eventsContainer}>
 
-                            {editingEventId === events._id ? (
+                <h1 className="font-bold text-2xl my-5 text-center">Meus eventos</h1>
+                {events.map((events: any) => (
+                    <div key={events._id} className="gap-0">
+
+                        {editingEventId === events._id ? (
 
 
-                                <div>
-                                    <form onSubmit={(e) => updateEvent(e, events._id)} className="flex flex-col">
-                                        <span className="flex flex-col items-start mb-5">
-                                            <label>Nome do evento</label>
-                                            <input className={input} type="text" defaultValue={events.name} />
-                                        </span>
-                                        <span className="flex flex-col items-start mb-5">
-                                            <label>Descrição</label>
-                                            <textarea defaultValue={events.description} className={input} cols={30} rows={10}></textarea>
-                                        </span>
-                                        <span className="flex flex-col items-start mb-5">
-                                            <label>Localização</label>
-                                            <input className={input} type="text" defaultValue={events.location} />
-                                        </span>
-                                        <span className="flex flex-col items-start mb-5">
-                                            <label>Data do evento</label>
-                                            <input className={input} type="date" defaultValue={events.date} />
-                                        </span>
-                                        <div className="flex justify-end gap-5 m-10">
+                            <div>
+                                <form onSubmit={(e) => updateEvent(e, events._id)} className="flex flex-col">
+                                    <span className="flex flex-col items-start mb-5">
+                                        <label>Nome do evento</label>
+                                        <input className={input} type="text" defaultValue={events.name} />
+                                    </span>
+                                    <span className="flex flex-col items-start mb-5">
+                                        <label>Descrição</label>
+                                        <textarea defaultValue={events.description} className={input} cols={30} rows={10}></textarea>
+                                    </span>
+                                    <span className="flex flex-col items-start mb-5">
+                                        <label>Localização</label>
+                                        <input className={input} type="text" defaultValue={events.location} />
+                                    </span>
+                                    <span className="flex flex-col items-start mb-5">
+                                        <label>Data do evento</label>
+                                        <input className={input} type="date" defaultValue={events.date} />
+                                    </span>
+                                    <div className="flex justify-end gap-5 m-10">
 
-                                            <button onClick={() => handleToggleEdit(events._id)} className={`
+                                        <button onClick={() => handleToggleEdit(events._id)} className={`
                                         flex 
                                         items-center
                                         gap-1
@@ -133,40 +137,40 @@ export default function MyEvents() {
                                         transition duration-100 ease-in-out
                                         `}> <CloseIcon /> Fechar</button>
 
-                                            <Button
-                                                text="Salvar"
-                                                width=""
+                                        <Button
+                                            text="Salvar"
+                                            width=""
 
-                                            />
+                                        />
 
-                                        </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
+                            </div>
 
-                            ) : (
+                        ) : (
 
-                                <div>
-                                    <h3 className="font-bold text-2xl my-5">{events.name}</h3>
-                                    <p>{events.description}</p>
-                                    <span className="flex gap-5 my-5">
-                                        <p className="flex items-end gap-1">
-                                            <i>
-                                                <CalendarMonthIcon />
-                                            </i>
-                                            {new Date(events.date).toLocaleDateString('pt-BR')}
-                                        </p>
-                                        <p className="flex items-end gap-1">
-                                            <i>
-                                                <LocationOnIcon />
-                                            </i>
-                                            {events.location}
-                                        </p>
-                                    </span>
+                            <div>
+                                <h3 className="font-bold text-2xl my-5">{events.name}</h3>
+                                <p>{events.description}</p>
+                                <span className="flex gap-5 my-5">
+                                    <p className="flex items-end gap-1">
+                                        <i>
+                                            <CalendarMonthIcon />
+                                        </i>
+                                        {new Date(events.date).toLocaleDateString('pt-BR')}
+                                    </p>
+                                    <p className="flex items-end gap-1">
+                                        <i>
+                                            <LocationOnIcon />
+                                        </i>
+                                        {events.location}
+                                    </p>
+                                </span>
 
 
-                                    <div className="flex justify-end gap-5">
+                                <div className="flex justify-end gap-5">
 
-                                        <button onClick={() => handleToggleEdit(events._id)} className={`
+                                    <button onClick={() => handleToggleEdit(events._id)} className={`
                                         flex 
                                         items-center
                                         gap-1
@@ -175,9 +179,9 @@ export default function MyEvents() {
                                         `}> <EditIcon /> Editar</button>
 
 
-                                        <button
-                                            onClick={() => setDialogOpen(true)}
-                                            className={`
+                                    <button
+                                        onClick={() => setDialogOpen(true)}
+                                        className={`
                                         flex 
                                         items-center
                                         gap-1
@@ -185,22 +189,22 @@ export default function MyEvents() {
                                         transition duration-100 ease-in-out
                                         `}> <DeleteIcon /> Excluir</button>
 
-                                        <Dialog open={dialogOpen} className="p-5">
-                                            <DialogTitle>Deseja excluir o evento?</DialogTitle>
-                                            <DialogActions className="flex items-center">
-                                                <Button onClick={() => deleteEvent(events._id)} text='Sim' width="" />
-                                                <button className="p-5" onClick={() => setDialogOpen(false)}>Não</button>
-                                            </DialogActions>
-                                        </Dialog>
-                                    </div>
+                                    <Dialog open={dialogOpen} className="p-5">
+                                        <DialogTitle>Deseja excluir o evento?</DialogTitle>
+                                        <DialogActions className="flex items-center">
+                                            <Button onClick={() => deleteEvent(events._id)} text='Sim' width="" />
+                                            <button className="p-5" onClick={() => setDialogOpen(false)}>Não</button>
+                                        </DialogActions>
+                                    </Dialog>
                                 </div>
-                            )}
+                            </div>
+                        )}
 
-                            <hr className="text-black w-full flex justify-start items-center my-5 opacity-10" />
-                        </div>
-                    ))}
-                </div>
-                {events.length === 0 && (<p className="text-center p-10">Você não possui eventos</p>)}
+                        <hr className="text-black w-full flex justify-start items-center my-5 opacity-10" />
+                    </div>
+                ))}
             </div>
-        );
-    }
+            {events.length === 0 && (<p className="text-center p-10">Você não possui eventos</p>)}
+        </div>
+    );
+}
