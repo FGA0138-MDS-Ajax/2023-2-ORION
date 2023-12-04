@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 
 export default function EditProfile() {
     const [changePassword, setChangePassword] = useState<boolean>(false);
+    const [error, setError] = useState<string>('');
     const router = useRouter()
     const { data: session } = useSession();
 
@@ -22,11 +23,39 @@ export default function EditProfile() {
         setChangePassword(!changePassword)
     }
 
-    if(!session) {
-        router.push('/')
+
+    async function newPassord(e: any) {
+        e.preventDefault()
+
+        const oldPassword = e.target[1].value
+        const newPassword = e.target[2].value
+
+        if (!oldPassword || !newPassword) {
+            setError('Both old and new passwords are required');
+            return;
+          }
+          
+          if (typeof oldPassword !== 'string' || typeof newPassword !== 'string') {
+            setError('Both old and new passwords must be strings');
+            return;
+          }
+          
+        try {
+            const response = await fetch(`api/user/${session?.user._id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ oldPassword, newPassword })
+            })
+
+        } catch (error) {
+            setError('Senha inválida')
+            return { error: 400 }
+        }
     }
 
-    
+
     return (
         <div>
             <Nav />
@@ -35,7 +64,7 @@ export default function EditProfile() {
                 <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10" />
 
                 <div className='grid grid-cols-2 gap-[5rem] mt-10'>
-                    <form className={form}>
+                    <form className={form} onSubmit={newPassord}>
                         <p className='text-left font-semibold'>Nome: <span className='font-normal'>{session?.user.name}</span></p>
                         <p className='text-left font-semibold'>Email: <span className='font-normal'>{session?.user.email}</span></p>
                         <div className='flex flex-col'>
