@@ -4,13 +4,15 @@ import Event from "@/models/Event";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest, { params}: {params :{ slug: number}}) {
-    const { creator, text } = await request.json();
+    const data = await request.json()
+    const creator = data.creator
+    const text = data.text
     const slug = params.slug
-    const _id = { "_id": slug}
+    const event = { "_id": slug}
 
     await connect();
 
-    const eventExist = await Event.findOne({_id});
+    const eventExist = await Event.findOne({_id: event});
 
     if(!eventExist){
         return new NextResponse("Evento não existe", {status: 400}) //retorna erro caso o evento não exista
@@ -18,7 +20,7 @@ export async function POST(request: NextRequest, { params}: {params :{ slug: num
 
     try {
         const newComment = new Comment({
-            _id,
+            event,
             creator,
             text
         });

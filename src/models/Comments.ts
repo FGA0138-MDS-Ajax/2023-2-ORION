@@ -8,4 +8,4 @@ const commentSchema = new Schema({
     text: {type: String, required: true, trim: true},
 }, {timestamps: true});
 
-export default mongoose.models.Event || mongoose.model('Event', commentSchema);
+export default mongoose.models.Comment || mongoose.model('Comment', commentSchema);
