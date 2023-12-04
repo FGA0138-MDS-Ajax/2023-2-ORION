@@ -1,7 +1,7 @@
 "use client"
 import { input } from '@/app/signup/styles.css';
 import Image from "next/image";
-import SignedEvents from "@/components/SignedEvents/page"
+import SignedEvents from "@/app/show-event/page"
 import Button from "@/components/Button/page"
 
 export default function profile() {

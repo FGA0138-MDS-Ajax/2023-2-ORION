@@ -4,7 +4,6 @@ import PersonIcon from "@mui/icons-material/Person";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Button from "../Button/page";
 import { useEffect, useState } from "react";
-import { getSession } from "next-auth/react";
 
 
 type Event = {
@@ -12,6 +11,7 @@ type Event = {
   description: string;
   creator: string;
   date: string;
+  createdAt: string;
 };
 
 
@@ -34,42 +34,37 @@ export default function EventCard() {
           .then((res) => res.json())
           .then((data) => data.name)
 
-          temp.push({ ...events, creator: users })
+        temp.push({ ...events, creator: users })
       }
 
       setEvents(temp)
-
-      console.log(response)
     }
-
-
     fetchData()
 
 
   }, [])
-
   return (
 
     <div className={container}>
 
       {events.map((events: any, index: any) => (
         <div key={index} className="gap-0">
-          <h3 className="font-bold text-lx">{events.name}</h3>
+          <h3 className="font-bold text-2xl my-5">{events.name}</h3>
           <p>{events.description}</p>
-          <span className="flex gap-5 items-center my-5">
-            <p>
+          <span className="flex gap-5 my-5">
+            <p className="flex items-end gap-1">
               <i>
                 <PersonIcon />
               </i>
               {events.creator}
             </p>
-            <p>
+            <p className="flex items-end gap-1">
               <i>
                 <CalendarMonthIcon />
               </i>
               {new Date(events.date).toLocaleDateString('pt-BR')}
             </p>
-            <p>
+            <p className="flex items-end gap-1">
               <i>
                 <LocationOnIcon />
               </i>
@@ -111,10 +106,11 @@ export default function EventCard() {
                 }}
             />
           </div>
+          <hr className="text-black w-full flex justify-start items-center my-5 opacity-10" />
+
         </div>
 
       ))}
-      {!events ? (<p>Não há eventos cadastrados</p>) : null}
 
     </div>
   );

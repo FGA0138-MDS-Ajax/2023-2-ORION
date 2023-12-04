@@ -12,7 +12,6 @@ const SearchBar = ({ setSearch }: any) => {
         setFilter(event.target.value);
 
     }
-    console.log(filter);
     return <div className='flex justify-center items-center gap-5'>
         <div className={
             `

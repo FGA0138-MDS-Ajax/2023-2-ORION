@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Nav />
       <div className={dashboard}>
-        <h1 className="font-bold text-2xl my-5">Mural de Eventos</h1>
+        <h1 className="font-light text-black my-5 text-[3rem]">Mural de Eventos</h1>
         <SearchBar />
         <EventCard />
         

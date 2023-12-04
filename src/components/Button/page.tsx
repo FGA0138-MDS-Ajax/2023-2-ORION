@@ -15,7 +15,6 @@ const Button = (props: ButtonProps) => {
           `
               bg-primary
                 rounded-md
-                m-3
                 px-[1.2em] py-[0.50em]
                 inline-block
                 box-border

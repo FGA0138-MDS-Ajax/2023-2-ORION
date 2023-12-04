@@ -1,18 +1,21 @@
 export const container = `
     bg-white 
-    w-full md:w-[40vw] h-full 
+    w-full md:w-[60vw] h-full 
     mt-6 mx-auto 
     rounded-xl 
     grid 
-    justify-left
+    justify-center 
     text-center
+    p-10
 `
 
 export const form = `
     flex
     flex-col
     gap-5
-    mt-10
+    items-left
+    
+
 `
 
 export const back = `
@@ -24,16 +27,14 @@ export const back = `
     hover:bg-primary
     hover:text-white
     transition duration-100 ease-in-out
-    
 
 `
 
 export const input = `
     bg-[#f6f6f6] 
     text-primaryDark text-left text-base 
-    w- 
-    p-2 m-3 
+    
+    p-2
     rounded-md border-2 border-solid border-[#e8e8e8]
     focus:outline-none
-
 `

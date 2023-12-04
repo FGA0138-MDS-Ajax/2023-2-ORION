@@ -29,7 +29,7 @@ export default function Signup() {
     const email = event.target[1].value;
     const password = event.target[2].value;
     const alias = ''
-    const events = []
+    const events = ''
     
 
     if (!isValidEmail(email)) {
@@ -43,7 +43,7 @@ export default function Signup() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, email, password, alias, events:[] })
+        body: JSON.stringify({ name, email, password, alias, events })
       })
       if (response.status == 400) {
         setError('Email já cadastrado')

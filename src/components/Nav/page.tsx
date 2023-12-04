@@ -41,13 +41,12 @@ const Nav = () => {
           gap-2
           md:flex-row
           
-          `} href="/my-account">
+          `} href="/edit-profile">
             <Avatar
               name={session.user?.name || ''}
             />
             Minha conta
           </Link>
-
           <li className="list-none">
             <button className={li} onClick={logout}>Sair</button>
           </li>
@@ -65,10 +64,7 @@ const Nav = () => {
           <Links />
         </div>
         <div className="md:hidden mx-1">
-          <button onClick={toggleNavbar}>
-            {isOpen ? <CloseIcon /> : <MenuIcon />}
-            {}
-          </button>
+          <button onClick={toggleNavbar}> {isOpen ? <CloseIcon /> : <MenuIcon />} </button>
         </div>
       </div>
       {isOpen && (<Links />)}
