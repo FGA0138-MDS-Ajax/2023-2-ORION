@@ -7,7 +7,6 @@ const bcrypt = require('bcryptjs')
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
 
-
     // const user = req.query
     const session = await getServerSession()
 
@@ -21,3 +20,4 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
         return new NextResponse("Erro", { status: 500 })
     }
 
+}
