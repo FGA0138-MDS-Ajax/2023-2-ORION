@@ -5,9 +5,19 @@ import Link from "next/link"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useSession } from "next-auth/react"
 import { container, form, back } from "../edit-profile/styles.css"
+import { useEffect } from "react"
+import { useRouter } from "next/navigation";
+
 
 export default function MyAccount() {
     const { data: session } = useSession();
+    const router = useRouter();
+
+    useEffect(() => {
+        if (!session) {
+            router.replace('/')
+        }
+    }, [session, router])
     
     return (
         <div >

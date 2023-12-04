@@ -4,7 +4,7 @@ import { container, form, back, input } from "./styles.css"
 import Button from "@/components/Button/page"
 import Link from "next/link"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react"
 import { Alert } from "@mui/material";
@@ -15,6 +15,13 @@ export default function CreateEvent() {
     const router = useRouter()
 
     const { data: session } = useSession();
+
+    useEffect(() => {
+        if (!session) {
+            router.replace('/')
+        }
+    }, [session, router])
+    
 
     const handleCreate = async (event: any) => {
         event.preventDefault();
