@@ -16,6 +16,7 @@ export default function CreateEvent() {
 
     const { data: session } = useSession();
 
+
     const handleCreate = async (event: any) => {
         event.preventDefault();
 
@@ -42,7 +43,7 @@ export default function CreateEvent() {
             }
             if (response.status == 201) {
                 setError('');
-                router.push('/')
+                router.push('/edit-profile')
             }
             if (response.status == 500) {
                 setError('Preencha todos os campos');
@@ -69,7 +70,7 @@ export default function CreateEvent() {
 
                         <div className="flex flex-col items-left ">
                             <label className="text-left ml-[16px]  opacity-40">Data do evento</label>
-                            <input className={input} type="date" />
+                            <input className={input} type="date"  />
                         </div>
 
                         <div className="flex flex-row-reverse p-5 justify-between">

@@ -7,40 +7,70 @@ import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
+import MyEvents from '@/components/MyEvents/page';
 
 
 
 export default function EditProfile() {
     const [changePassword, setChangePassword] = useState<boolean>(false);
-    const [events, setEvents] = useState([])
+    const [error, setError] = useState<string>('');
+    const { data: session } = useSession();
 
     function handleChangePassword(e: any) {
         e.preventDefault()
         setChangePassword(!changePassword)
     }
 
-    const { data: session } = useSession();
+    async function newPassord(e: any) {
+        e.preventDefault()
 
-    console.log(session)
+        const oldPassword = e.target[1].value
+        const newPassword = e.target[2].value
 
-    async function listEvent() {
-        const userEvents = await fetch(`/api/user/`)
-            .then((res) => res.json())
-            .then((data) => data.map((event: any) => event.events))
+        if (!oldPassword || !newPassword) {
+            setError('Both old and new passwords are required');
+            return;
+        }
 
+        if (typeof oldPassword !== 'string' || typeof newPassword !== 'string') {
+            setError('Both old and new passwords must be strings');
+            return;
+        }
+
+        try {
+            const response = await fetch(`api/user/${session?.user._id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ oldPassword, newPassword })
+            })
+
+        } catch (error) {
+            setError('Senha inválida')
+            return { error: 400 }
+        }
     }
 
-    listEvent()
 
     return (
         <div>
             <Nav />
             <div className={container}>
+                <Link className={back}
+                    href='/'>
+                    <ArrowBackIcon className={`
+                                    flex 
+                                    justify-center 
+                                    items-center
+                                `} />
+                    voltar
+                </Link>
                 <h1 className="font-light text-black text-[3rem] mb-5">Minha conta</h1>
                 <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10" />
 
-                <div className='grid grid-cols-2 gap-[5rem] mt-10'>
-                    <form className={form}>
+                <div className='md:grid grid-cols-2 gap-[5rem] mt-10 p-5'>
+                    <form className={form} onSubmit={newPassord}>
                         <p className='text-left font-semibold'>Nome: <span className='font-normal'>{session?.user.name}</span></p>
                         <p className='text-left font-semibold'>Email: <span className='font-normal'>{session?.user.email}</span></p>
                         <div className='flex flex-col'>
@@ -50,16 +80,15 @@ export default function EditProfile() {
                                 hover:text-primaryDark 
                                 transition duration-100 ease-in-out
                             `} onClick={handleChangePassword}> Alterar senha </button>
-                            {changePassword ? <input type='password' placeholder="Nova senha" className={input} /> : ''}
-                        </div>
+                            {changePassword
+                                ? <div className='flex flex-col gap-5 mt-5'>
+                                    <input type='password' placeholder="Senha antiga" className={input} />
+                                    <input type='password' placeholder="Nova senha" className={input} />
 
-                        {/* <span>
-                                    <Link
-                                        className={`hover:text-primaryDark hover:font-bold transition duration-500 ease-in-out`}
-                                        href="/recover-password">
-                                        Esqueci minha senha
-                                    </Link>
-                                </span> */}
+                                </div>
+
+                                : ''}
+                        </div>
                         <Button
                             text="Enviar"
                             width="w-full"
@@ -74,17 +103,11 @@ export default function EditProfile() {
                             className=" hidden md:block md:top-10 md:left-10"
                         />
                     </div>
-                    <Link className={back}
-                                href='/'>
-                                <ArrowBackIcon className={`
-                                    flex 
-                                    justify-center 
-                                    items-center
-                                `} />
-                                voltar
-                            </Link>
                 </div>
+
+                <MyEvents />
             </div>
+
         </div>
     )
 }

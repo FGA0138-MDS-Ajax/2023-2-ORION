@@ -4,6 +4,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Button from "../Button/page";
 import { useEffect, useState } from "react";
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 
 
 type Event = {
@@ -46,6 +47,7 @@ export default function EventCard() {
   return (
 
     <div className={container}>
+      <span id="inicio"></span>
 
       {events.map((events: any, index: any) => (
         <div key={index} className="gap-0">
@@ -76,42 +78,51 @@ export default function EventCard() {
               text="Entrar"
               justify="flex justify-end"
               width="w-20"
-              onClick={() => {
-                ///*
-                const pegaPerfil = async () => {
-                  const session = await getSession();
-                  const data = {
-                    eventid: events._id,
-                    userid: session?.user._id,
-                  }
-                  const response = await fetch(`/api/events/entrar`, {
-                  
-                    method: 'PUT',
-                    body: JSON.stringify(data),
-                    headers: {'Content-Type': 'aplication/json'}
-                    
+            // onClick={() => {
+            //   ///*
+            //   const pegaPerfil = async () => {
+            //     const session = await getSession();
+            //     const data = {
+            //       eventid: events._id,
+            //       userid: session?.user._id,
+            //     }
+            //     const response = await fetch(`/api/events/entrar`, {
 
-                  }).then((response) => {
-                    //console.log(response)
-                    //alert(response)
-                    response.json()
-                  })
-                  .catch((err) => {
-                    alert("Putz, algo deu errado aqui, tenta de novo!")
-                  })
+            //       method: 'PUT',
+            //       body: JSON.stringify(data),
+            //       headers: {'Content-Type': 'aplication/json'}
 
-                }
-                
-                pegaPerfil()//*/
-                }}
+
+            //     }).then((response) => {
+            //       //console.log(response)
+            //       //alert(response)
+            //       response.json()
+            //     })
+            //     .catch((err) => {
+            //       alert("Putz, algo deu errado aqui, tenta de novo!")
+            //     })
+
+            //   }
+
+            //   pegaPerfil()//*/
+            //   }}
             />
           </div>
           <hr className="text-black w-full flex justify-start items-center my-5 opacity-10" />
-
         </div>
 
       ))}
 
+      {events.length === 0 && (<p className="text-center p-10 animate-pulse">Carregando eventos..</p>)}
+
+      <button 
+      className={`
+        fixed
+        bottom-5
+        left-5
+        text-primary
+      `}
+      onClick={() => window.scrollTo(0, 0)}><KeyboardDoubleArrowUpIcon/></button>
     </div>
   );
 }
