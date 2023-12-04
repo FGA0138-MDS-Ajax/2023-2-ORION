@@ -1,4 +1,4 @@
-export const container = `
+export const eventsContainer = `
   flex flex-col 
   box-border
   text-left 
@@ -11,3 +11,12 @@ export const container = `
   shadow-lg shadow-black-500/50'
 `
 
+export const container = `
+    h-screen
+    w-screen
+    flex
+    m-auto
+    justify-center
+    items-center
+    bg-white
+ `

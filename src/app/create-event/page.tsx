@@ -69,7 +69,7 @@ export default function CreateEvent() {
 
                         <div className="flex flex-col items-left ">
                             <label className="text-left ml-[16px]  opacity-40">Data do evento</label>
-                            <input className={input} type="date" />
+                            <input className={input} type="date"  />
                         </div>
 
                         <div className="flex flex-row-reverse p-5 justify-between">

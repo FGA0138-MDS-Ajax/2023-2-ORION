@@ -7,31 +7,26 @@ import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
+import MyEvents from '@/components/MyEvents/page';
+import { useRouter } from "next/navigation";
 
 
 
 export default function EditProfile() {
     const [changePassword, setChangePassword] = useState<boolean>(false);
-    const [events, setEvents] = useState([])
+    const router = useRouter()
+    const { data: session } = useSession();
 
     function handleChangePassword(e: any) {
         e.preventDefault()
         setChangePassword(!changePassword)
     }
 
-    const { data: session } = useSession();
-
-    console.log(session)
-
-    async function listEvent() {
-        const userEvents = await fetch(`/api/user/`)
-            .then((res) => res.json())
-            .then((data) => data.map((event: any) => event.events))
-
+    if(!session) {
+        router.push('/')
     }
 
-    listEvent()
-
+    
     return (
         <div>
             <Nav />
@@ -50,7 +45,14 @@ export default function EditProfile() {
                                 hover:text-primaryDark 
                                 transition duration-100 ease-in-out
                             `} onClick={handleChangePassword}> Alterar senha </button>
-                            {changePassword ? <input type='password' placeholder="Nova senha" className={input} /> : ''}
+                            {changePassword
+                                ? <div className='flex flex-col gap-5 mt-5'>
+                                    <input type='password' placeholder="Senha antiga" className={input} />
+                                    <input type='password' placeholder="Nova senha" className={input} />
+
+                                </div>
+
+                                : ''}
                         </div>
 
                         {/* <span>
@@ -75,16 +77,19 @@ export default function EditProfile() {
                         />
                     </div>
                     <Link className={back}
-                                href='/'>
-                                <ArrowBackIcon className={`
+                        href='/'>
+                        <ArrowBackIcon className={`
                                     flex 
                                     justify-center 
                                     items-center
                                 `} />
-                                voltar
-                            </Link>
+                        voltar
+                    </Link>
                 </div>
+
+                <MyEvents />
             </div>
+
         </div>
     )
 }

@@ -2,7 +2,8 @@ import { NextResponse, NextRequest } from "next/server"
 import connect from "@/lib/mongodb";
 import User from "@/models/User";
 import { getServerSession } from "next-auth/next";
-import { NextApiRequest } from "next";
+
+const bcrypt = require('bcryptjs')
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
 
@@ -19,7 +20,4 @@ export const GET = async (req: NextRequest, res: NextResponse) => {
     } catch (error) {
         return new NextResponse("Erro", { status: 500 })
     }
-
-
-}
 
