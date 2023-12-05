@@ -8,7 +8,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from "../Button/page";
-import { useRouter } from 'next/navigation';
 
 import {
     Dialog,
@@ -31,7 +30,6 @@ export default function MyEvents() {
     const [editingEventId, setEditingEventId] = useState(null)
     const [dialogOpen, setDialogOpen] = useState(false)
     const { data: session } = useSession();
-    const router = useRouter()
 
     useEffect(() => {
         const fetchData = async () => {

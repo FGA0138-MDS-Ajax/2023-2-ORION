@@ -7,7 +7,7 @@ const eventSchema = new Schema({
     location: {type: String, required: true},
     date: {type: Date, required: true},
     creator: {type: Schema.Types.ObjectId, ref: 'User'},
-    participants: [],
+    participants: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 }, {timestamps: true});
 
 export default mongoose.models.Event || mongoose.model('Event', eventSchema);

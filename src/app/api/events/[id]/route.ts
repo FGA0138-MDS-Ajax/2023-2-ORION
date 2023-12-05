@@ -3,6 +3,19 @@ import Event from "@/models/Event"
 import connect from '@/lib/mongodb'
 
 
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+    const eventId = params.id;
+
+    try {
+        await connect()
+        const events = await Event.findById(eventId)
+        return NextResponse.json(events, { status: 200 })
+    } catch (error) {
+        return new NextResponse("Erro", { status: 500 })
+    }
+}
+
+
 //deletando um evento
 export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
 

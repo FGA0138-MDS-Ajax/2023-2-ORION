@@ -1,3 +1,4 @@
+'use client'
 import { container } from "./styles.css";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import PersonIcon from "@mui/icons-material/Person";
@@ -5,9 +6,10 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Button from "../Button/page";
 import { useEffect, useState } from "react";
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-
+import { useSession } from "next-auth/react";
 
 type Event = {
+  _id: string;
   name: string;
   description: string;
   creator: string;
@@ -18,6 +20,8 @@ type Event = {
 
 export default function EventCard() {
   const [events, setEvents] = useState<Event[]>([])
+  const { data: session } = useSession();
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,16 +45,36 @@ export default function EventCard() {
       setEvents(temp)
     }
     fetchData()
-
-
   }, [])
+
+  async function enterEvent(eventId: any) {
+
+    const participants = session?.user._id
+
+    const response = await fetch(`/api/events/enter/${eventId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ participants })
+    })
+
+    if (response.ok) {
+      window.location.reload()
+    }
+
+  }
+
   return (
 
     <div className={container}>
       <span id="inicio"></span>
 
-      {events.map((events: any, index: any) => (
-        <div key={index} className="gap-0">
+      {events.map((events: any) => (
+
+
+
+        <div key={events._id} className="gap-0">
           <h3 className="font-bold text-2xl my-5">{events.name}</h3>
           <p>{events.description}</p>
           <span className="flex gap-5 my-5">
@@ -78,34 +102,7 @@ export default function EventCard() {
               text="Entrar"
               justify="flex justify-end"
               width="w-20"
-            // onClick={() => {
-            //   ///*
-            //   const pegaPerfil = async () => {
-            //     const session = await getSession();
-            //     const data = {
-            //       eventid: events._id,
-            //       userid: session?.user._id,
-            //     }
-            //     const response = await fetch(`/api/events/entrar`, {
-
-            //       method: 'PUT',
-            //       body: JSON.stringify(data),
-            //       headers: {'Content-Type': 'aplication/json'}
-
-
-            //     }).then((response) => {
-            //       //console.log(response)
-            //       //alert(response)
-            //       response.json()
-            //     })
-            //     .catch((err) => {
-            //       alert("Putz, algo deu errado aqui, tenta de novo!")
-            //     })
-
-            //   }
-
-            //   pegaPerfil()//*/
-            //   }}
+              onClick={() => enterEvent(events._id)}
             />
           </div>
           <hr className="text-black w-full flex justify-start items-center my-5 opacity-10" />
@@ -115,14 +112,14 @@ export default function EventCard() {
 
       {events.length === 0 && (<p className="text-center p-10 animate-pulse">Carregando eventos..</p>)}
 
-      <button 
-      className={`
+      <button
+        className={`
         fixed
         bottom-5
         left-5
         text-primary
       `}
-      onClick={() => window.scrollTo(0, 0)}><KeyboardDoubleArrowUpIcon/></button>
+        onClick={() => window.scrollTo(0, 0)}><KeyboardDoubleArrowUpIcon /></button>
     </div>
   );
 }

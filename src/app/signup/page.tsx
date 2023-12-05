@@ -29,7 +29,7 @@ export default function Signup() {
     const email = event.target[1].value;
     const password = event.target[2].value;
     const alias = ''
-    const events = ''
+    const events: string[] = []
     
 
     if (!isValidEmail(email)) {
