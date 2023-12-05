@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { toast } from "@/components/ui/use-toast";
 
 type Event = {
   _id: string;
@@ -48,6 +49,7 @@ export default function EventCard() {
 
     const participants = session?.user._id
 
+
     const response = await fetch(`/api/events/enter/${eventId}`, {
       method: 'PUT',
       headers: {
@@ -57,8 +59,30 @@ export default function EventCard() {
     })
 
     if (response.ok) {
+      toast({
+        title: 'Sucesso',
+        description: 'Entrou no evento',
+        variant: "constructive"
+      })
       router.push(`/event/${eventId}`)
     }
+
+    if (response.status == 409) {
+      toast({
+        title: 'Erro',
+        description: response.text(),
+        variant: "destructive"
+      })
+    }
+
+    if (response.status == 500) {
+      toast({
+        title: 'Erro',
+        description: response.text(),
+        variant: "destructive"
+      })
+    }
+
   }
 
   return (

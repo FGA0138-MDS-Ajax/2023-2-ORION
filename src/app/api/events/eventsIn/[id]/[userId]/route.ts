@@ -16,10 +16,14 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
     }
 
     const user = await User.findById(userId);
+    const event = await Event.findById(eventId);
 
     try {
         user.eventsIn.pull(eventId);
+        event.participants.pull(userId);
+
         await user.save();
+        await event.save();
 
         return new NextResponse(JSON.stringify({
             message: "Saiu com sucesso",

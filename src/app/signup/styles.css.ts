@@ -5,5 +5,6 @@ export const input = `
     p-2 m-3 
     rounded-md border-2 border-solid border-[#e8e8e8]
     focus:outline-none
+    
 
 `

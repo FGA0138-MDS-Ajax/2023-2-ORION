@@ -71,11 +71,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
         await oldEvent.save();
 
-        return new NextResponse(JSON.stringify({
-            message: "Event atualizado corretamente",
-            OldEvent: oldEvent,
-            success: true,
-        }), { status: 201 })
+        return new NextResponse('Evento editado com sucesso', { status: 200 })
     } catch (error: any) {
         return new NextResponse(error, { status: 500 })
     }

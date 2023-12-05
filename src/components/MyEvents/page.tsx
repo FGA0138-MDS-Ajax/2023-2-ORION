@@ -9,12 +9,15 @@ import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from "../Button/page";
 import { useRouter } from "next/navigation";
+import { toast } from "@/components/ui/use-toast";
+
 
 import {
     Dialog,
     DialogTitle,
     DialogActions,
 } from '@mui/material'
+import { uptime } from "process";
 
 
 type Event = {
@@ -28,9 +31,9 @@ type Event = {
 
 export default function MyEvents() {
     const [events, setEvents] = useState<Event[]>([])
-    const [reload, setReload] = useState(false);
     const [editingEventId, setEditingEventId] = useState(null)
     const [dialogOpen, setDialogOpen] = useState(false)
+    const [trigger, setTrigger] = useState(false);
     const { data: session } = useSession();
     const router = useRouter()
 
@@ -46,10 +49,7 @@ export default function MyEvents() {
             }
         }
         fetchData()
-
-
     }, [session?.user._id])
-
 
     async function deleteEvent(eventId: any) {
         const response = await fetch(`/api/events/${eventId}`, {
@@ -60,15 +60,33 @@ export default function MyEvents() {
 
         })
 
-        if (!response.ok) {
-            throw new Error('Falha ao deletar evento');
+        if (response.status == 200) {
+            toast({
+                title: 'Sucesso',
+                description: 'Evento excluído',
+                variant: "constructive"
+            })
+            setTrigger(!trigger)
         }
 
-        if (response.ok) {
-            window.location.reload()
+        if (response.status == 400) {
+            toast({
+                title: 'Erro',
+                description: 'O evento não existe',
+                variant: "constructive"
+            })
+        }
+
+
+        if (response.status == 500) {
+            toast({
+                title: 'Erro',
+                description: 'Algo deu errado',
+                variant: "constructive"
+            })
         }
     }
-    
+
     async function updateEvent(e: any, eventId: any) {
         e.preventDefault()
 
@@ -83,11 +101,31 @@ export default function MyEvents() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ name, description, location, date })
-
         })
 
-        if (response.ok) {
-            router.refresh()
+        if (response.status === 200) {
+            toast({
+                title: 'Sucesso',
+                description: 'Evento alterado',
+                variant: "constructive"
+            })
+            window.location.reload()
+        }
+        
+        if (response.status === 400) {
+            toast({
+                title: 'Erro',
+                description: 'O evento não existe',
+                variant: "destructive"
+            })
+        }
+
+        if (response.status === 500) {
+            toast({
+                title: 'Erro',
+                description: 'Algo deu errado',
+                variant: "destructive"
+            })
         }
 
     }
@@ -109,24 +147,23 @@ export default function MyEvents() {
 
                         {editingEventId === events._id ? (
 
-
                             <div>
                                 <form onSubmit={(e) => updateEvent(e, events._id)} className="flex flex-col">
                                     <span className="flex flex-col items-start mb-5">
                                         <label>Nome do evento</label>
-                                        <input className={input} type="text" defaultValue={events.name} />
+                                        <input className={input} type="text" defaultValue={events.name} required/>
                                     </span>
                                     <span className="flex flex-col items-start mb-5">
                                         <label>Descrição</label>
-                                        <textarea defaultValue={events.description} className={input} cols={30} rows={10}></textarea>
+                                        <textarea defaultValue={events.description} className={input} cols={30} rows={10} required></textarea>
                                     </span>
                                     <span className="flex flex-col items-start mb-5">
                                         <label>Localização</label>
-                                        <input className={input} type="text" defaultValue={events.location} />
+                                        <input className={input} type="text" defaultValue={events.location} required/>
                                     </span>
                                     <span className="flex flex-col items-start mb-5">
                                         <label>Data do evento</label>
-                                        <input className={input} type="date" defaultValue={events.date} />
+                                        <input className={input} type="date" defaultValue={events.date} required />
                                     </span>
                                     <div className="flex justify-end gap-5 m-10">
 

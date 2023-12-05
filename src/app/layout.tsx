@@ -1,8 +1,7 @@
 import "../styles/globals.css";
 import { getServerSession } from "next-auth/next";
 import SessionProvider from "@/lib/SessionProvider";
-import Nav from "../components/Nav/page";
-
+import { Toaster } from "@/components/ui/toaster";
 
 export default async function RootLayout({
   children,
@@ -15,6 +14,7 @@ export default async function RootLayout({
     <html>
       <body>
         <SessionProvider session={session}>
+          <Toaster />
           {children}
         </SessionProvider>
       </body>

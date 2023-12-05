@@ -33,7 +33,6 @@ export default async function EventShow({ params }: EventProps) {
     }
 
     const participants = await listParticipant()
-
     return (
         <div>
             <Nav />
@@ -44,9 +43,10 @@ export default async function EventShow({ params }: EventProps) {
                 <p>{event.date.toLocaleDateString()}</p>
                 Participants: {participants.map(
                     (participant: any) =>
-                        <p key={participant._id}>
+                        participant && <p key={participant._id}>
                             {participant.name}
-                        </p>)}
+                        </p>
+                )}
             </div>
         </div>
     )

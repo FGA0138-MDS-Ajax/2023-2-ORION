@@ -2,15 +2,13 @@
 import EmailInput from "@/components/EmailInput/page";
 import { input } from "./styles.css";
 import Button from "@/components/Button/page";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Alert } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "@/components/ui/use-toast";
 
 
 export default function Signup() {
-  const [error, setError] = useState<string>('');
   const router = useRouter()
 
   const handleEmailChange = (email: string) => {
@@ -31,10 +29,14 @@ export default function Signup() {
     const alias = ''
     const events: string[] = []
     const eventsIn: string[] = []
-    
+
 
     if (!isValidEmail(email)) {
-      setError('Email inválido')
+      toast({
+        title: 'Erro',
+        description: 'O email informado deve ser válido',
+        variant: "destructive"
+      })
       return;
     }
 
@@ -47,21 +49,32 @@ export default function Signup() {
         body: JSON.stringify({ name, email, password, alias, events })
       })
       if (response.status == 400) {
-        setError('Email já cadastrado')
+        toast({
+          title: 'Erro',
+          description: 'Email já cadastrado',
+          variant: "destructive"
+        })
       }
       if (response.status == 201) {
-        setError('');
+        toast({
+          title: 'Sucesso',
+          description: 'Cadastro realizado',
+          variant: "constructive"
+        })
+
         router.push('/login')
       }
     } catch (error) {
-      setError('Erro ao cadastrar')
-      console.error(error);
+      toast({
+        title: 'Erro',
+        description: 'Algo deu',
+        variant: "destructive"
+      })
     }
   }
 
   return (
     <div className="md:grid grid-cols-[1fr_1fr] w-screen">
-
       <div className="hidden bg-primary md:grid place-items-center">
         <Link href="/">
           <Image
@@ -81,10 +94,9 @@ export default function Signup() {
       </div>
       <div className="bg-[#ffffff] h-screen grid place-items-center">
         <div className="w-[400px] text-center text-[#45bf55]">
-          {error && <Alert severity="error">{error}</Alert>}
           <form onSubmit={handleSubmit}>
             <h1 className="font-normal text-black  tex text-[3rem]">Crie sua conta</h1>
-            <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10"/>
+            <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10" />
             <input type="text" placeholder="Seu nome" className={input} required />
             <EmailInput onEmailChange={handleEmailChange} />
             <input type='password' placeholder="Sua senha" className={input} required />

@@ -19,7 +19,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
     for (const participant of event.participants) {
         if (participant == userId) {
-            return new NextResponse("Já registrado", { status: 409 }) 
+            return new NextResponse("Você é o criador do evento", { status: 409 }) 
         }
     }
 
@@ -42,7 +42,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
 
     } catch (error: any) {
-        return new NextResponse(error, { status: 500 })
+        return new NextResponse('Algo deu errado', { status: 500 })
 
     }
 

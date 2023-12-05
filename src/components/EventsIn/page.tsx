@@ -5,6 +5,7 @@ import { eventsContainer, input } from "./styles.css";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import InfoIcon from '@mui/icons-material/Info';
 import Button from "../Button/page";
 import { useRouter } from "next/navigation";
 
@@ -75,9 +76,7 @@ export default function EventsIn() {
                 {events.map((events: any) => (
                     <div key={events._id} className="gap-0">
                         <div>
-                            <Link href={`/event/${events._id}`}>
-                                <h3 className="font-bold text-2xl my-5">{events.name}</h3>
-                            </Link>
+                            <h3 className="font-bold text-2xl my-5">{events.name}</h3>
                             <p>{events.description}</p>
                             <span className="flex gap-5 my-5">
                                 <p className="flex items-end gap-1">
@@ -96,6 +95,12 @@ export default function EventsIn() {
 
 
                             <div className="flex justify-end gap-5">
+                                <Link
+                                    className="hover:text-primaryDark transition duration-100 ease-in-out"
+                                    href={`/event/${events._id}`}>
+                                    <p><InfoIcon />Informações</p>
+                                </Link>
+
                                 <button
                                     onClick={() => setDialogOpen(true)}
                                     className={`

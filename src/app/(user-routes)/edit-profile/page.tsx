@@ -11,6 +11,9 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import MyEvents from '@/components/MyEvents/page';
 import EventsIn from '@/components/EventsIn/page';
+import { toast } from '@/components/ui/use-toast';
+import { useRouter } from "next/navigation";
+
 
 
 
@@ -68,13 +71,11 @@ export default function EditProfile() {
     )
 }
 
-
 const ProfileInfo = () => {
     const [changePassword, setChangePassword] = useState<boolean>(false);
     const [open, setOpen] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
     const { data: session } = useSession();
-
 
     function handleChangePassword(e: any) {
         e.preventDefault()
@@ -88,7 +89,12 @@ const ProfileInfo = () => {
         const newPassword = e.target[2].value
 
         if (!oldPassword || !newPassword) {
-            setError('Both old and new passwords are required');
+            toast({
+                title: 'Erro',
+                description: 'Email já cadastrado',
+                variant: "destructive"
+            })
+
             return;
         }
 
@@ -97,18 +103,29 @@ const ProfileInfo = () => {
             return;
         }
 
-        try {
-            const response = await fetch(`api/user/${session?.user._id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ oldPassword, newPassword })
-            })
 
-        } catch (error) {
-            setError('Senha inválida')
-            return { error: 400 }
+        const response = await fetch(`api/user/${session?.user._id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ oldPassword, newPassword })
+        })
+        if (response.status == 200) {
+            toast({
+                title: 'Sucesso',
+                description: 'Senha alterada',
+                variant: "constructive"
+            })
+            window.location.reload()
+        }
+
+        if (response.status == 400) {
+            toast({
+                title: 'Erro',
+                description: response.statusText,
+                variant: "destructive"
+            })
         }
     }
 
@@ -131,14 +148,13 @@ const ProfileInfo = () => {
                         ? <div className='flex flex-col gap-5 mt-5'>
                             <input type='password' placeholder="Senha antiga" className={input} />
                             <input type='password' placeholder="Nova senha" className={input} />
-
+                            <Button
+                                text="Enviar"
+                                width="w-full"
+                            />
                         </div>
                         : ''}
                 </div>
-                <Button
-                    text="Enviar"
-                    width="w-full"
-                />
             </form>
         </div>
     )
