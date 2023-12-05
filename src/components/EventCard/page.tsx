@@ -7,6 +7,7 @@ import Button from "../Button/page";
 import { useEffect, useState } from "react";
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 type Event = {
   _id: string;
@@ -17,11 +18,10 @@ type Event = {
   createdAt: string;
 };
 
-
 export default function EventCard() {
   const [events, setEvents] = useState<Event[]>([])
   const { data: session } = useSession();
-
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +31,6 @@ export default function EventCard() {
       }).then((res) => res.json())
 
       const temp = []
-
       for await (const events of response) {
         let creatorId = events.creator
 
@@ -41,12 +40,10 @@ export default function EventCard() {
 
         temp.push({ ...events, creator: users })
       }
-
       setEvents(temp)
     }
     fetchData()
   }, [])
-
   async function enterEvent(eventId: any) {
 
     const participants = session?.user._id
@@ -60,9 +57,8 @@ export default function EventCard() {
     })
 
     if (response.ok) {
-      window.location.reload()
+      router.push(`/event/${eventId}`)
     }
-
   }
 
   return (
@@ -71,9 +67,6 @@ export default function EventCard() {
       <span id="inicio"></span>
 
       {events.map((events: any) => (
-
-
-
         <div key={events._id} className="gap-0">
           <h3 className="font-bold text-2xl my-5">{events.name}</h3>
           <p>{events.description}</p>
@@ -107,7 +100,6 @@ export default function EventCard() {
           </div>
           <hr className="text-black w-full flex justify-start items-center my-5 opacity-10" />
         </div>
-
       ))}
 
       {events.length === 0 && (<p className="text-center p-10 animate-pulse">Carregando eventos..</p>)}

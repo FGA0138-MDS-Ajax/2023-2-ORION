@@ -29,7 +29,7 @@ const Nav = () => {
     return <>
       {!session ? (
         <ul className={ul}>
-          <li><Link className={`font-bold bg-primary hover:font-black transition duration-100 ease-in-out`} href="/signup">Criar conta</Link></li>
+          <li><Link className={`font-bold hover:font-black hover:text-black transition duration-100 ease-in-out`} href="/signup">Criar conta</Link></li>
           <li><Link className={li} href="/login">Entrar</Link></li>
         </ul>
       ) : (

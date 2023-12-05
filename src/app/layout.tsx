@@ -1,6 +1,8 @@
 import "../styles/globals.css";
 import { getServerSession } from "next-auth/next";
 import SessionProvider from "@/lib/SessionProvider";
+import Nav from "../components/Nav/page";
+
 
 export default async function RootLayout({
   children,
@@ -11,7 +13,7 @@ export default async function RootLayout({
 
   return (
     <html>
-      <body className="bg-offWhite">
+      <body>
         <SessionProvider session={session}>
           {children}
         </SessionProvider>

@@ -14,7 +14,7 @@ export const form = `
     flex-col
     gap-5
     items-left
-    
+    w-full
 
 `
 

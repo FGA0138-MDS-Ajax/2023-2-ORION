@@ -7,6 +7,7 @@ const userSchema = new Schema({
     email: { type: String, unique: true, trim: true },
     password: { type: String, require: true, trim: true },
     events: [{ type: Schema.Types.ObjectId, ref: 'Event' }],
+    eventsIn:[{ type: Schema.Types.ObjectId, ref: 'Event' }],
 }, {timestamps: true});
 
 export default mongoose.models.User || mongoose.model('User', userSchema);

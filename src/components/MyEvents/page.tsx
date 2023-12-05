@@ -8,6 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from "../Button/page";
+import { useRouter } from "next/navigation";
 
 import {
     Dialog,
@@ -27,9 +28,11 @@ type Event = {
 
 export default function MyEvents() {
     const [events, setEvents] = useState<Event[]>([])
+    const [reload, setReload] = useState(false);
     const [editingEventId, setEditingEventId] = useState(null)
     const [dialogOpen, setDialogOpen] = useState(false)
     const { data: session } = useSession();
+    const router = useRouter()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -65,6 +68,7 @@ export default function MyEvents() {
             window.location.reload()
         }
     }
+    
     async function updateEvent(e: any, eventId: any) {
         e.preventDefault()
 
@@ -72,7 +76,6 @@ export default function MyEvents() {
         const description = e.target[1].value
         const location = e.target[2].value
         const date = e.target[3].value
-
 
         const response = await fetch(`/api/events/${eventId}`, {
             method: 'PUT',
@@ -84,7 +87,7 @@ export default function MyEvents() {
         })
 
         if (response.ok) {
-            window.location.reload()
+            router.refresh()
         }
 
     }

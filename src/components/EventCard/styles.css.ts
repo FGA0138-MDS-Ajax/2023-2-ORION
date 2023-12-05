@@ -8,5 +8,6 @@ export const container = `
   justify-center 
   p-5 
   mb-0
+  bg-white
 `
 

@@ -30,6 +30,7 @@ export default function Signup() {
     const password = event.target[2].value;
     const alias = ''
     const events: string[] = []
+    const eventsIn: string[] = []
     
 
     if (!isValidEmail(email)) {

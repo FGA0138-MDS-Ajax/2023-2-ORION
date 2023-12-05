@@ -26,9 +26,7 @@ export default function CreateEvent() {
         const date = event.target[3].value;
         const creator = session?.user._id
         const participants = []
-
-        console.log(name, location, description, creator)
-
+        const participantsIn = []
 
         try {
             const response = await fetch('/api/events/create', {
@@ -36,7 +34,7 @@ export default function CreateEvent() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, location, description, date, creator, participants: [] })
+                body: JSON.stringify({ name, location, description, date, creator, participants: [], participantsIn: [] })
             })
             if (response.status == 400) {
                 setError('Erro ao criar evento')

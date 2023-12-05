@@ -14,7 +14,7 @@ export default function Home() {
         <h1 className="font-light text-black my-5 text-[3rem]">Mural de Eventos</h1>
         <SearchBar />
         <EventCard />
-        
+
       </div>
     </>
   );

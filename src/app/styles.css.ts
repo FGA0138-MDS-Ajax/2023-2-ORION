@@ -1,5 +1,5 @@
 export const dashboard = `
-  bg-white 
+  bg-white
   w-full md:w-[60vw] h-full 
   mt-6 mx-auto 
   rounded-xl 
