@@ -74,7 +74,6 @@ export default function login() {
                         className=" hidden md:block absolute md:top-10 md:left-10"
                     />
                 </Link>
-                {error && <Alert severity="error">{error}</Alert>}
                 <form onSubmit={handleSubmit}>
                     <h1 className="font-normal text-black  tex text-[3rem]">Acesse sua conta</h1>
                     <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10" />
