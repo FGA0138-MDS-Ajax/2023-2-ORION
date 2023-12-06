@@ -6,10 +6,14 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "@/components/ui/use-toast";
-
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useState } from "react";
 
 export default function Signup() {
   const router = useRouter()
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
 
   const handleEmailChange = (email: string) => {
     console.log('Email changed:', email);
@@ -26,6 +30,7 @@ export default function Signup() {
     const name = event.target[0].value;
     const email = event.target[1].value;
     const password = event.target[2].value;
+    const repeatPassword = event.target[4].value;
     const alias = ''
     const events: string[] = []
     const eventsIn: string[] = []
@@ -39,6 +44,17 @@ export default function Signup() {
       })
       return;
     }
+
+    if (password != repeatPassword) {
+      toast({
+        title: 'Erro',
+        description: 'As senhas não coincidem',
+        variant: "destructive"
+      })
+      return;
+    }
+
+
 
     try {
       const response = await fetch('/api/signup', {
@@ -96,10 +112,21 @@ export default function Signup() {
         <div className="w-[400px] text-center text-[#45bf55]">
           <form onSubmit={handleSubmit}>
             <h1 className="font-normal text-black  tex text-[3rem]">Crie sua conta</h1>
+
             <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10" />
             <input type="text" placeholder="Seu nome" className={input} required />
             <EmailInput onEmailChange={handleEmailChange} />
-            <input type='password' placeholder="Sua senha" className={input} required />
+            <span className="flex justify-center md:ml-5">
+              <input type={showPassword ? "text" : "password"} placeholder="Sua senha" className={input} required />
+              <button className="hidden md:block" onClick={(e) => { e.preventDefault(); setShowPassword(!showPassword) }}>
+                {showPassword ?
+                  <VisibilityOffIcon className="h-5 w-5" />
+                  : <VisibilityIcon className="h-5 w-5" />
+                }
+              </button>
+            </span>
+            <input type={showPassword ? "text" : "password"} placeholder="Repita sua senha" className={input} required />
+
             <Button
               text="Criar conta"
               width="w-[300px]"
@@ -122,6 +149,6 @@ export default function Signup() {
         </div>
       </div>
 
-    </div>
+    </div >
   )
 }
