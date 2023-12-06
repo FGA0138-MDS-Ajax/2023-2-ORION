@@ -7,10 +7,9 @@ import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
-import { Alert } from "@mui/material";
+import { toast } from "@/components/ui/use-toast";
 
 export default function login() {
-    const [error, setError] = useState<string>('');
     const router = useRouter()
     const session = useSession()
 
@@ -31,7 +30,11 @@ export default function login() {
         const password = event.target[1].value;
 
         if (!isValidEmail(email)) {
-            setError('Email inválido')
+            toast({
+                title: 'Erro',
+                description: 'Você precisa usar um email institucional',
+                variant: "destructive"
+            })
             return;
         }
 
@@ -43,12 +46,20 @@ export default function login() {
         })
 
         if (response?.error) {
-            setError('email ou senha inválidos')
+            toast({
+                title: 'Erro',
+                description: 'Email ou senha incorretos',
+                variant: "destructive"
+            })
 
             if (response?.url) router.replace("/")
         } else {
-            setError('')
-            
+            toast({
+                title: 'Sucesso',
+                description: 'Você está logado',
+                variant: "constructive"
+            })
+
         }
     }
     return (

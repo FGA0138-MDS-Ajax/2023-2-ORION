@@ -9,6 +9,7 @@ import Link from "next/dist/client/link";
 import { signOut, useSession } from "next-auth/react";
 import Avatar from "@/components/Avatar/page";
 import { useRouter } from "next/navigation";
+import { toast } from "../ui/use-toast";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,6 +23,11 @@ const Nav = () => {
 
   async function logout() {
     await signOut({ redirect: false })
+    toast({
+      title: 'Sucesso',
+      description: 'Você saiu da sua conta',
+      variant: "constructive"
+    })
     router.replace("/")
   }
 
@@ -29,7 +35,11 @@ const Nav = () => {
     return <>
       {!session ? (
         <ul className={ul}>
-          <li><Link className={`font-bold hover:font-black hover:text-black transition duration-100 ease-in-out`} href="/signup">Criar conta</Link></li>
+          <li><Link className={`
+            font-bold hover:font-black 
+            hover:text-black 
+            transition duration-100 ease-in-out
+          `} href="/signup">Criar conta</Link></li>
           <li><Link className={li} href="/login">Entrar</Link></li>
         </ul>
       ) : (

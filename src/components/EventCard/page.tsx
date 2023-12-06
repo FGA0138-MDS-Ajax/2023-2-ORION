@@ -52,6 +52,15 @@ export default function EventCard() {
   }, [])
   async function enterEvent(eventId: any) {
 
+    if (!session){
+      toast({
+        title: 'Erro',
+        description: 'Você precisa estar logado para entrar no evento',
+        variant: "destructive"
+      })
+      return
+    }
+
     const participants = session?.user._id
 
 
