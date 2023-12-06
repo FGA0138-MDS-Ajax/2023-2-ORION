@@ -25,3 +25,11 @@ export const input = `
     rounded-md border-2 border-solid border-[#e8e8e8]
     focus:outline-none
 `
+export const apaga = `
+    bg-[#f6f6f6] 
+    text-primaryDark text-left text-base 
+    
+    p-2
+    rounded-md border-2 border-solid border-[#e8e8e8]
+    focus:outline-none
+`
