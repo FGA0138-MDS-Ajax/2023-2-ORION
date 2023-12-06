@@ -52,6 +52,7 @@ export default function EventCard() {
     }
     fetchData()
   }, [])
+
   async function enterEvent(eventId: any) {
 
     if (!session) {
