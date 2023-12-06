@@ -9,6 +9,7 @@ import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
+import Image from 'next/image'
 
 type Event = {
   _id: string;
@@ -22,6 +23,7 @@ type Event = {
 export default function EventCard() {
   const [events, setEvents] = useState<Event[]>([])
   const { data: session } = useSession();
+  const [loading, setLoading] = useState(true)
   const router = useRouter();
 
   useEffect(() => {
@@ -32,6 +34,7 @@ export default function EventCard() {
       }).then((res) => res.json())
 
       const temp = []
+
       for await (const events of response) {
         let creatorId = events.creator
 
@@ -41,7 +44,9 @@ export default function EventCard() {
 
         temp.push({ ...events, creator: users })
       }
+
       setEvents(temp)
+      setLoading(false)
     }
     fetchData()
   }, [])
@@ -89,7 +94,6 @@ export default function EventCard() {
 
     <div className={container}>
       <span id="inicio"></span>
-
       {events.map((events: any) => (
         <div key={events._id} className="gap-0">
           <h3 className="font-bold text-2xl my-5">{events.name}</h3>
@@ -97,19 +101,19 @@ export default function EventCard() {
           <span className="flex gap-5 my-5">
             <p className="flex items-end gap-1">
               <i>
-                <PersonIcon />
+                <PersonIcon className="text-primary" />
               </i>
               {events.creator}
             </p>
             <p className="flex items-end gap-1">
               <i>
-                <CalendarMonthIcon />
+                <CalendarMonthIcon className="text-primary" />
               </i>
               {new Date(events.date).toLocaleDateString('pt-BR')}
             </p>
             <p className="flex items-end gap-1">
               <i>
-                <LocationOnIcon />
+                <LocationOnIcon className="text-primary" />
               </i>
               {events.location}
             </p>
@@ -126,7 +130,14 @@ export default function EventCard() {
         </div>
       ))}
 
-      {events.length === 0 && (<p className="text-center p-10 animate-pulse">Carregando eventos..</p>)}
+      {loading ? (<p className="text-center p-10 animate-pulse">Carregando eventos..</p>)
+        : events.length == 0 && !loading ? (
+          <div className="flex flex-col justify-center items-center m-auto">
+            <Image src='/img/not-found.svg' alt="sem eventos" width={450} height={300} />
+            <p className="text-center font-medium text-[1.5em] p-10" >Nenhum evento encontrado </p>
+          </div>
+        )
+          : null}
 
       <button
         className={`

@@ -8,6 +8,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import InfoIcon from '@mui/icons-material/Info';
 import Button from "../Button/page";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 import {
     Dialog,
@@ -15,6 +16,7 @@ import {
     DialogActions,
 } from '@mui/material'
 import Link from "next/link";
+import { set } from "mongoose";
 
 
 type Event = {
@@ -30,6 +32,7 @@ export default function EventsIn() {
     const [events, setEvents] = useState<Event[]>([])
     const [reload, setReload] = useState(false);
     const [dialogOpen, setDialogOpen] = useState(false)
+    const [loading, setLoading] = useState(true)
     const { data: session } = useSession();
     const router = useRouter()
 
@@ -42,6 +45,7 @@ export default function EventsIn() {
                 }).then((res) => res.json())
 
                 setEvents(response)
+                setLoading(false)
             }
         }
         fetchData()
@@ -124,7 +128,14 @@ export default function EventsIn() {
                     </div>
                 ))}
             </div>
-            {events.length === 0 && (<p className="text-center p-10">Você não entrou em um evento</p>)}
+            {loading ? (<p className="text-center p-10 animate-pulse">Carregando eventos..</p>)
+                : events.length == 0 && !loading ? (
+                    <div className="flex flex-col justify-center items-center m-auto">
+                        <Image src='/img/not-found.svg' alt="sem eventos" width={350} height={300} />
+                        <p className="text-center font-medium text-[1.5em] p-10" >Nenhum evento encontrado </p>
+                    </div>
+                )
+                    : null}
         </div>
     );
 }

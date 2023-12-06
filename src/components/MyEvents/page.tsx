@@ -10,7 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from "../Button/page";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
-
+import Image from 'next/image'
 
 import {
     Dialog,
@@ -34,6 +34,7 @@ export default function MyEvents() {
     const [editingEventId, setEditingEventId] = useState(null)
     const [dialogOpen, setDialogOpen] = useState(false)
     const [trigger, setTrigger] = useState(false);
+    const [loading, setLoading] = useState(true)
     const { data: session } = useSession();
     const router = useRouter()
 
@@ -46,6 +47,7 @@ export default function MyEvents() {
                 }).then((res) => res.json())
 
                 setEvents(response)
+                setLoading(false)
             }
         }
         fetchData()
@@ -111,7 +113,7 @@ export default function MyEvents() {
             })
             window.location.reload()
         }
-        
+
         if (response.status === 400) {
             toast({
                 title: 'Erro',
@@ -151,7 +153,7 @@ export default function MyEvents() {
                                 <form onSubmit={(e) => updateEvent(e, events._id)} className="flex flex-col">
                                     <span className="flex flex-col items-start mb-5">
                                         <label>Nome do evento</label>
-                                        <input className={input} type="text" defaultValue={events.name} required/>
+                                        <input className={input} type="text" defaultValue={events.name} required />
                                     </span>
                                     <span className="flex flex-col items-start mb-5">
                                         <label>Descrição</label>
@@ -159,7 +161,7 @@ export default function MyEvents() {
                                     </span>
                                     <span className="flex flex-col items-start mb-5">
                                         <label>Localização</label>
-                                        <input className={input} type="text" defaultValue={events.location} required/>
+                                        <input className={input} type="text" defaultValue={events.location} required />
                                     </span>
                                     <span className="flex flex-col items-start mb-5">
                                         <label>Data do evento</label>
@@ -242,7 +244,14 @@ export default function MyEvents() {
                     </div>
                 ))}
             </div>
-            {events.length === 0 && (<p className="text-center p-10">Você não possui eventos</p>)}
+            {loading ? (<p className="text-center p-10 animate-pulse">Carregando eventos..</p>)
+                : events.length == 0 && !loading ? (
+                    <div className="flex flex-col justify-center items-center m-auto">
+                        <Image src='/img/not-found.svg' alt="sem eventos" width={450} height={300} />
+                        <p className="text-center font-medium text-[1.5em] p-10" >Nenhum evento encontrado </p>
+                    </div>
+                )
+                    : null}
         </div>
     );
 }

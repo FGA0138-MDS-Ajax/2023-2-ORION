@@ -1,10 +1,7 @@
 "use client"
 import { input, container, form } from './styles.css';
-import Image from "next/image";
 import Button from "@/components/Button/page"
 import Nav from '@/components/Nav/page';
-import Link from 'next/link';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -12,10 +9,6 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import MyEvents from '@/components/MyEvents/page';
 import EventsIn from '@/components/EventsIn/page';
 import { toast } from '@/components/ui/use-toast';
-import { useRouter } from "next/navigation";
-
-
-
 
 export default function EditProfile() {
     const [open, setOpen] = useState('ProfileInfo');
@@ -25,15 +18,7 @@ export default function EditProfile() {
         <div>
             <Nav />
             <div className={container}>
-                {/* <Link className={back}
-                    href='/'>
-                    <ArrowBackIcon className={`
-                                    flex 
-                                    justify-center 
-                                    items-center
-                                `} />
-                    voltar
-                </Link> */}
+                
                 <h1 className="font-light text-black md:text-[2rem] text-[1.5rem] mb-5">Minha conta</h1>
                 <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10" />
 
