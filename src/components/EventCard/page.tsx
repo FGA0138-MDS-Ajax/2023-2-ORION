@@ -10,6 +10,8 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
 import Image from 'next/image'
+import Link from "next/link";
+import InfoIcon from '@mui/icons-material/Info';
 
 type Event = {
   _id: string;
@@ -52,7 +54,7 @@ export default function EventCard() {
   }, [])
   async function enterEvent(eventId: any) {
 
-    if (!session){
+    if (!session) {
       toast({
         title: 'Erro',
         description: 'Você precisa estar logado para entrar no evento',
@@ -87,6 +89,7 @@ export default function EventCard() {
         description: response.text(),
         variant: "destructive"
       })
+      router.push('/')
     }
 
     if (response.status == 500) {
@@ -95,6 +98,7 @@ export default function EventCard() {
         description: response.text(),
         variant: "destructive"
       })
+      router.push('/')
     }
 
   }
@@ -105,7 +109,15 @@ export default function EventCard() {
       <span id="inicio"></span>
       {events.map((events: any) => (
         <div key={events._id} className="gap-0">
-          <h3 className="font-bold text-2xl my-5">{events.name}</h3>
+          <h3 className="flex items-center gap-5 font-bold text-2xl my-5">
+            {events.name}
+            <Link
+              className="hover:text-primaryDark transition duration-100 ease-in-out"
+              href={`/event/${events._id}`}>
+              <p className="flex text-sm items-center gap-1 font-medium"><InfoIcon className="text-primary" />Informações</p>
+            </Link>
+          </h3>
+
           <p>{events.description}</p>
           <span className="flex gap-5 my-5">
             <p className="flex items-end gap-1">
@@ -127,14 +139,14 @@ export default function EventCard() {
               {events.location}
             </p>
           </span>
-          <div>
-            <Button
-              text="Entrar"
-              justify="flex justify-end"
-              width="w-20"
-              onClick={() => enterEvent(events._id)}
-            />
-          </div>
+
+          <Button
+            text="Entrar"
+            justify="flex justify-end"
+            width="w-20"
+            onClick={() => enterEvent(events._id)}
+          />
+
           <hr className="text-black w-full flex justify-start items-center my-5 opacity-10" />
         </div>
       ))}

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
 import Event from "@/models/Event"
 import connect from '@/lib/mongodb'
 import User from "@/models/User"

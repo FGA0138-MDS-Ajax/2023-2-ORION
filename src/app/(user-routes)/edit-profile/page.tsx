@@ -12,7 +12,6 @@ import { toast } from '@/components/ui/use-toast';
 
 export default function EditProfile() {
     const [open, setOpen] = useState('ProfileInfo');
-    const { data: session } = useSession();
 
     return (
         <div>
@@ -117,8 +116,8 @@ const ProfileInfo = () => {
     return (
         <div className='flex justify-center p-10 '>
             <form className={form} onSubmit={newPassord}>
-                <p className='text-left font-semibold'>Nome: <span className='font-normal'>{session?.user.name}</span></p>
-                <p className='text-left font-semibold'>Email: <span className='font-normal'>{session?.user.email}</span></p>
+                <p className='text-left font-semibold text-[1.5rem]'>Nome: <span className='font-normal'>{session?.user.name}</span></p>
+                <p className='text-left font-semibold text-[1.5rem]'>Email: <span className='font-normal'>{session?.user.email}</span></p>
                 <div className='flex flex-col'>
                     <button className={`
                     text-left text-primary 

@@ -10,5 +10,12 @@ declare module 'next-auth' {
             alias: string
             events: string[]
         }
+
+        admin: {
+            _id: string
+            username: string
+            name: string
+            password: string
+        }
     }
 }

@@ -3,7 +3,7 @@ export const eventsContainer = `
     box-border
     text-left 
     min-w-[98vw] 
-    md:min-w-[58vw]
+    md:min-w-[35vw]
     mx-auto my-10 
     justify-center 
     p-5 

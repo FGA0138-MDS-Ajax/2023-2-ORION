@@ -6,8 +6,8 @@ import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import MyEvents from '@/components/MyEvents/page';
-import EventsIn from '@/components/EventsIn/page';
+import Users from '../../components/Users/page';
+import Events from '../../components/Events/page';
 import { toast } from '@/components/ui/use-toast';
 
 export default function EditProfile() {
@@ -19,7 +19,7 @@ export default function EditProfile() {
             <Nav />
             <div className={container}>
                 
-                <h1 className="font-light text-black md:text-[2rem] text-[1.5rem] mb-5">Minha conta</h1>
+                <h1 className="font-light text-black md:text-[2rem] text-[1.5rem] mb-5">Painel de administração</h1>
                 <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10" />
 
                 <div className='flex justify-center'>
@@ -33,22 +33,22 @@ export default function EditProfile() {
                         </li>
                         <li className='md:text-[2rem]'>
                             <button
-                                className={`${open === 'MyEvents' ? 'border-b-4 border-primary font-semibold' : 'text-black'}`}
-                                onClick={() => setOpen('MyEvents')}>Meus eventos
+                                className={`${open === 'Events' ? 'border-b-4 border-primary font-semibold' : 'text-black'}`}
+                                onClick={() => setOpen('Events')}>Eventos
                             </button>
                         </li>
                         <li className='md:text-[2rem]'>
                             <button
                                 className={`${open === 'EventsIn' ? 'border-b-4 border-primary font-semibold' : 'text-black'}`}
-                                onClick={() => setOpen('EventsIn')}>Eventos
+                                onClick={() => setOpen('EventsIn')}>Usuários
                             </button>
                         </li>
                     </ul>
                 </div>
                 <div>
                     {open === 'ProfileInfo' && <ProfileInfo />}
-                    {open === 'MyEvents' && <MyEvents />}
-                    {open === 'EventsIn' && <EventsIn />}
+                    {open === 'Events' && <Events />}
+                    {open === 'Users' && <Users/>}
                 </div>
             </div>
 

@@ -8,56 +8,38 @@ const SearchBar = ({ setSearch }: any) => {
     const { data: session } = useSession();
     const [filter, setFilter] = useState('');
 
-    const search = (event: any) => {
-        setFilter(event.target.value);
+    return <div className='flex justify-end items-center gap-5'>
 
-    }
-    return <div className='flex justify-center items-center gap-5'>
-        <div className={
-            `
-            flex 
-            border 
-            border-black 
-            border-opacity-15 rounded-lg 
-            p-2
-            w-[80vw]
-            md:w-[40vw]
-            `
-        }>
-            <i>
-                <SearchIcon
-                    className={`
-                    text-black
-                    
-                    `}
-                />
-            </i>
-            <input
-                className="placeholder:text-black focus:outline-none w-full "
-                type="search"
-                value={filter}
-                onChange={search.bind(this)}
-                placeholder="Buscar por evento"
-            />
+        {(!session) ? <div className='text-center text-lg'>
+            <Link className={link} href='/signup'> Crie sua conta </Link>
+            ou
+            <Link className={link} href='/signup'> entre </Link>
+            para acessar ou criar um evento
         </div>
-        {!session ? (
-            <>
-            </>
-        ) : (
-            <Link
-                className={`
-            bg-primary 
-            p-2 
-            rounded-full 
-            text-white
-            hover:bg-primaryDark transition duration-100 ease-in-out
-            `} href="/create-event">
-                <AddIcon
-                />
-            </Link>
-        )}
 
+            : <div>
+                <Link
+                    className={button} href="/create-event">
+
+                    <AddIcon
+                    />
+                </Link>
+            </div>}
     </div>
 }
 
 export default SearchBar
+
+export const button = `
+    bg-primary 
+    p-2 
+    rounded-full 
+    text-white
+    hover:bg-primaryDark transition duration-100 ease-in-out
+`
+
+
+export const link = `
+    text-primary
+    hover:text-primaryDark transition duration-100 ease-in-out
+`

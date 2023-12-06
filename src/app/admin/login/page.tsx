@@ -15,44 +15,32 @@ export default function login() {
 
     useEffect(() => {
         if (session?.status === "authenticated") {
-            router.replace('/')
+            router.replace('/admin/dashboard')
         }
     }, [session, router])
 
 
-    const isValidEmail = (email: string) => {
-        return email.endsWith('@aluno.unb.br');
-    }
-
     const handleSubmit = async (event: any) => {
         event.preventDefault()
-        const email = event.target[0].value;
+        const username = event.target[0].value;
         const password = event.target[1].value;
 
-        if (!isValidEmail(email)) {
-            toast({
-                title: 'Erro',
-                description: 'Você precisa usar um email institucional',
-                variant: "destructive"
-            })
-            return;
-        }
 
-        const response = await signIn("credentials", {
+        const response = await signIn("admin-credentials", {
             redirect: false,
-            email,
+            username,
             password,
-            callbackUrl: '/'
+            callbackUrl: '/admin/dashboard'
         })
 
         if (response?.error) {
             toast({
                 title: 'Erro',
-                description: 'Email ou senha incorretos',
+                description: 'Usuário ou senha incorretos',
                 variant: "destructive"
             })
 
-            if (response?.url) router.replace("/")
+            if (response?.url) router.replace("/admin/login")
         } else {
             toast({
                 title: 'Sucesso',
@@ -75,17 +63,10 @@ export default function login() {
                     />
                 </Link>
                 <form onSubmit={handleSubmit}>
-                    <h1 className="font-normal text-black  tex text-[3rem]">Acesse sua conta</h1>
+                    <h1 className="font-normal text-black  tex text-[2.5rem]">Área restrita</h1>
                     <hr className="text-black w-1/2 flex justify-center items-center m-auto opacity-10" />
-                    <input placeholder="Seu email" type="email" className={input} />
+                    <input placeholder="Usuário" type="text" className={input} />
                     <input type='password' placeholder="Sua senha" className={input} required />
-                    {/* <span>
-                                <Link
-                                    className={`hover:text-primaryDark hover:font-bold transition duration-500 ease-in-out`}
-                                    href="/recover-password">
-                                    Esqueci minha senha
-                                </Link>
-                            </span> */}
                     <Button
                         text="Entrar"
                         width="w-[300px]"

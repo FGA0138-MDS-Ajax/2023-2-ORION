@@ -7,8 +7,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react"
-import { Alert } from "@mui/material";
-
+import { toast } from "@/components/ui/use-toast"
 
 export default function CreateEvent() {
     const [error, setError] = useState<string>('');
@@ -28,28 +27,38 @@ export default function CreateEvent() {
         const participants = []
         const participantsIn = []
 
-        try {
-            const response = await fetch('/api/events/create', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, location, description, date, creator, participants: [], participantsIn: [] })
-            })
-            if (response.status == 400) {
-                setError('Erro ao criar evento')
-            }
-            if (response.status == 201) {
-                setError('');
-                router.push('/edit-profile')
-            }
-            if (response.status == 500) {
-                setError('Preencha todos os campos');
-            }
-        } catch (error) {
-            setError('')
-        }
 
+        const response = await fetch('/api/events/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, location, description, date, creator, participants: [], participantsIn: [] })
+        })
+        if (response.status == 400) {
+            toast({
+                title: 'Erro',
+                description: 'Erro ao criar o evento',
+                variant: "destructive"
+            })
+        }
+        if (response.status == 201) {
+            toast({
+                title: 'Sucesso',
+                description: 'Evento criado',
+                variant: "constructive"
+
+            })
+            router.push('/edit-profile')
+        }
+        if (response.status == 500) {
+            toast({
+                title: 'Erro',
+                description: 'Erro ao criar o evento',
+                variant: "destructive"
+
+            })
+        }
     }
 
     return (
@@ -58,7 +67,6 @@ export default function CreateEvent() {
             <div className={container}>
                 <h1 className={`font-bold text-2xl mt-10`}>Criar um evento</h1>
                 <br />
-                {error && <Alert severity="error">{error}</Alert>}
                 <div>
                     <form className={form} onSubmit={handleCreate}>
                         <input className={input} type="text" placeholder="Nome do evento" />
@@ -68,7 +76,7 @@ export default function CreateEvent() {
 
                         <div className="flex flex-col items-left ">
                             <label className="text-left ml-[16px]  opacity-40">Data do evento</label>
-                            <input className={input} type="date"  />
+                            <input className={input} type="date" />
                         </div>
 
                         <div className="flex flex-row-reverse p-5 justify-between">

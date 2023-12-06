@@ -54,7 +54,14 @@ export default function Signup() {
       return;
     }
 
-
+    if(password.length < 4){
+      toast({
+        title: 'Erro',
+        description: 'A senha deve ter pelo menos 4 caracteres',
+        variant: "destructive"
+      })
+      return;
+    }
 
     try {
       const response = await fetch('/api/signup', {
