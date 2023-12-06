@@ -68,7 +68,7 @@ export default function MyEvents() {
                 description: 'Evento excluído',
                 variant: "constructive"
             })
-            setTrigger(!trigger)
+            window.location.reload()
         }
 
         if (response.status == 400) {

@@ -9,6 +9,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import Button from "../Button/page";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { toast } from "@/components/ui/use-toast";
 
 import {
     Dialog,
@@ -16,7 +17,6 @@ import {
     DialogActions,
 } from '@mui/material'
 import Link from "next/link";
-import { set } from "mongoose";
 
 
 type Event = {
@@ -64,10 +64,20 @@ export default function EventsIn() {
         })
 
         if (!response.ok) {
-            throw new Error('Falha ao deletar evento');
+            toast({
+                title: 'erro',
+                description: 'algo deu errado',
+                variant: "destructive"
+            })
+            window.location.reload()
         }
 
         if (response.ok) {
+            toast({
+                title: 'Sucesso',
+                description: 'Saiu do evento',
+                variant: "constructive"
+            })
             window.location.reload()
         }
     }
