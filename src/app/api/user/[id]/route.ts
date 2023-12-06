@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import connect from "@/lib/mongodb"
 import User from "@/models/User"
-import { getServerSession } from "next-auth";
 
 const bcrypt = require('bcryptjs');
 
@@ -14,7 +13,6 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     return NextResponse.json(user, { status: 200 })
 
 }
-
 
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
 

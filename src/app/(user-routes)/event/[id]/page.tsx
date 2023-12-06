@@ -9,6 +9,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import PersonIcon from "@mui/icons-material/Person";
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import Avatar from "@/components/Avatar/page"
+import Link from "next/link";
 
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -50,13 +51,15 @@ export default async function EventShow({ params }: EventProps) {
         <div>
             <Nav />
             <div className={container}>
-                <header>
-                    <h2 className='text-[3em] font-bold'>{event.name}</h2>
-                    <p><PersonIcon className="text-primary" /> criado por {name}</p>
+                <header className="flex items-center">
+                    <h2 className='text-[3em] font-bold p-5'>{event.name}</h2>
+
                     <div className="w-full flex justify-end my-auto ">
                         <BackButton />
                     </div>
+
                 </header>
+                <p>Criado por<Link className="hover:text-primary transition duration-100 ease-in-out" href={`/user/${event.creator}`}> {name}</Link></p>
 
                 <hr />
                 <div className="flex flex-col">
@@ -96,7 +99,7 @@ export default async function EventShow({ params }: EventProps) {
             </div>
 
 
-        </div>
+        </div >
     )
 
 }

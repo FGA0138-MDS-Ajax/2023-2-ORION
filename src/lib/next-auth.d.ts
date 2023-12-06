@@ -8,6 +8,7 @@ declare module 'next-auth' {
             email: string
             password: string
             alias: string
+            bio: string
             events: string[]
         }
     }

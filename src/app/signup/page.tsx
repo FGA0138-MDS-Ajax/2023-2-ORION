@@ -32,6 +32,7 @@ export default function Signup() {
     const password = event.target[2].value;
     const repeatPassword = event.target[4].value;
     const alias = ''
+    const bio = ''
     const events: string[] = []
     const eventsIn: string[] = []
 
@@ -69,7 +70,7 @@ export default function Signup() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, email, password, alias, events })
+        body: JSON.stringify({ name, email, password, alias, bio, events, eventsIn })
       })
       if (response.status == 400) {
         toast({
@@ -81,7 +82,7 @@ export default function Signup() {
       if (response.status == 201) {
         toast({
           title: 'Sucesso',
-          description: 'Cadastro realizado',
+          description: 'Cadastro realizado! faça login',
           variant: "constructive"
         })
 

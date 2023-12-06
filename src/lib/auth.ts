@@ -12,6 +12,8 @@ export const authOptions: any = {
             credentials: {
                 name: { label: "Name", type: "text" },
                 email: { label: "Email", type: "text" },
+                alias: { label: "Alias", type: "text" },
+                bio: { label: "Bio", type: "text" },
                 password: { label: "Password", type: "password" },
                 events: { label: "Events", type: "text" }
             },

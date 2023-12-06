@@ -42,7 +42,7 @@ export default function EventCard() {
 
         const users = await fetch(`/api/user/${creatorId}`)
           .then((res) => res.json())
-          .then((data) => data.name)
+          .then((data) => data ? data.name : null)
 
         temp.push({ ...events, creator: users })
       }

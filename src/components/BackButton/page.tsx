@@ -20,7 +20,7 @@ const BackButton = () => {
 }
 
 export const back = `
-    w-[100px] h-[40px]
+    w-[100] h-[40px]
     border
     p-5
     flex justify-center items-center
