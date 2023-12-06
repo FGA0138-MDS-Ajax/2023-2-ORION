@@ -1,6 +1,5 @@
 import CredentialsProvider from "next-auth/providers/credentials"
 import User from "@/models/User"
-import Admin from "@/models/Admin"
 import connect from "@/lib/mongodb"
 
 const bcrypt = require('bcryptjs');
