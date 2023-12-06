@@ -1,5 +1,5 @@
 "use client"
-import { input, container, form, back } from './styles.css';
+import { input, container, form } from './styles.css';
 import Image from "next/image";
 import Button from "@/components/Button/page"
 import Nav from '@/components/Nav/page';

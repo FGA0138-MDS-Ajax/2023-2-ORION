@@ -50,7 +50,7 @@ export default function EventsIn() {
     }, [session?.user._id])
 
 
-    async function deleteEvent(eventId: any) {
+    async function exitEvent(eventId: any) {
         const response = await fetch(`/api/events/eventsIn/${eventId}/${session?.user._id}`, {
             method: 'DELETE',
             headers: {
@@ -114,7 +114,7 @@ export default function EventsIn() {
                                 <Dialog open={dialogOpen} className="p-5">
                                     <DialogTitle>Deseja sair do evento?</DialogTitle>
                                     <DialogActions className="flex items-center">
-                                        <Button onClick={() => deleteEvent(events._id)} text='Sim' width="" />
+                                        <Button onClick={() => exitEvent(events._id)} text='Sim' width="" />
                                         <button className="p-5" onClick={() => setDialogOpen(false)}>Não</button>
                                     </DialogActions>
                                 </Dialog>

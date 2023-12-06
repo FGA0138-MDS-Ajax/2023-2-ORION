@@ -1,11 +1,11 @@
 export const container = `
     bg-white 
-    w-full md:w-[60vw] h-full 
+    w-full md:w-[80vw] h-full 
     mt-6 mx-auto 
     rounded-md
     grid 
-    justify-center 
-    text-center
+    gap-5
+
 `
 
 export const back = `
